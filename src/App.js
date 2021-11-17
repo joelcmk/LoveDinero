@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import Select from 'react-select';
-import Creatable, { useCreatable } from 'react-select/creatable';
 import CreatableSelect from 'react-select/creatable';
+import Budget from './components/Budget';
 import './App.css';
 
 const App = function () {
@@ -28,18 +27,18 @@ const App = function () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItems(item)
     setSubmit('next')
-  }
-  const hello = (e) => {
-    e.preventDefault()
-    setTest2(test)
-    setSubmit('')
   }
 
   const test1 = (e) => {
     setTest(e.value)
   };
+
+  const hello = (e) => {
+    e.preventDefault()
+    setTest2({ expense: item, category: test })
+    setSubmit('')
+  }
 
   console.log(test2)
 
@@ -51,20 +50,23 @@ const App = function () {
           <input name="expense" id="expense" value={item} onChange={handleChange} />
           <button type="submit">Next</button>
         </form>
+        <Budget newExpense={test2} />
       </div>
     );
   }
 
   if (submit === 'next') {
     return (
-      <form onSubmit={hello} className="App">
-        <CreatableSelect
-          options={options}
-          isClearable
-          onChange={test1}
-        />
-        <button type="submit">Submit</button>
-      </form>
+      <div>
+        <form onSubmit={hello} className="App">
+          <CreatableSelect
+            options={options}
+            isClearable
+            onChange={test1}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     );
   }
 };
