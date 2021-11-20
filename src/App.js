@@ -52,10 +52,12 @@ const App = function () {
     setSubmit('')
   }
 
-  const array = [];
+  const array = data.map(item => (
+    item.expense
+  ));
   let sum = 0;
 
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
   console.log(sum);
@@ -75,7 +77,8 @@ const App = function () {
           </li>
         ))}
         <div className="total">
-          {}
+          <h3>Total:</h3>
+          {sum}
         </div>
       </div>
     );
