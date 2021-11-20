@@ -47,7 +47,7 @@ const App = function () {
     e.preventDefault()
     setData([
       ...data,
-      { expense: item, category: test }
+      { expense: parseInt(item), category: test }
     ]);
     setSubmit('')
   }
