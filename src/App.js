@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget';
-import data from './data.json';
 import './App.css';
 
 const App = function () {
@@ -22,6 +21,15 @@ const App = function () {
     { value: 'other', label: 'Other' }
   ]
 
+  const [data, setData] = useState([
+
+    { expense: 13, category: 'home' },
+    { expense: 56, category: 'home' },
+    { expense: 87, category: 'shopping' }
+  ]);
+
+  const [suma, setSuma] = useState([])
+
   const handleChange = (e) => {
     setItem(e.target.value);
   }
@@ -37,11 +45,20 @@ const App = function () {
 
   const hello = (e) => {
     e.preventDefault()
-    setTest2({ expense: item, category: test })
+    setData([
+      ...data,
+      { expense: item, category: test }
+    ]);
     setSubmit('')
   }
 
-  console.log(data[0].expense)
+  const array = [];
+  let sum = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    sum += array[i];
+  }
+  console.log(sum);
 
   if (submit === '') {
     return (
@@ -57,6 +74,9 @@ const App = function () {
             {item.category} | {item.expense}
           </li>
         ))}
+        <div className="total">
+          {}
+        </div>
       </div>
     );
   }
