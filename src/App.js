@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
-import Budget from './components/Budget';
 import './App.css';
 
 const App = function () {
 
-  const [item, setItem] = useState('');
-  const [items, setItems] = useState('')
+  const [expense, setExpense] = useState('')
   const [submit, setSubmit] = useState('');
-  const [test, setTest] = useState('')
-  const [test2, setTest2] = useState('');
+  const [category, setCategory] = useState('')
 
   const options = [
     { value: 'home', label: 'Home' },
@@ -22,36 +19,35 @@ const App = function () {
   ]
 
   const [data, setData] = useState([
-
     { expense: 13, category: 'home' },
     { expense: 56, category: 'home' },
     { expense: 87, category: 'shopping' }
   ]);
 
-  const [suma, setSuma] = useState([])
 
   const handleChange = (e) => {
-    setItem(e.target.value);
-  }
+    setExpense(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmit('next')
-  }
-
-  const test1 = (e) => {
-    setTest(e.value)
+    setSubmit('next');
   };
 
-  const hello = (e) => {
+  const handleCategory = (e) => {
+    setCategory(e.value)
+  };
+
+  const submitCategory = (e) => {
     e.preventDefault()
     setData([
       ...data,
-      { expense: parseInt(item), category: test }
+      { expense: parseInt(expense), category: category }
     ]);
     setSubmit('')
   }
 
+  // Total
   const array = data.map(item => (
     item.expense
   ));
@@ -60,17 +56,21 @@ const App = function () {
   for (let i = 0; i < array.length; i++) {
     sum += array[i];
   }
-  console.log(sum);
 
   if (submit === '') {
     return (
       <div className="App">
         <form onSubmit={handleSubmit}>
           <label>Add New Expense</label>
-          <input name="expense" id="expense" value={item} onChange={handleChange} />
+          <input name="expense" id="expense" value={expense} onChange={handleChange} />
           <button type="submit">Next</button>
         </form>
-        <Budget newExpense={test2} />
+        <form >
+          <label>Add an income</label>
+          <input name="income" id="income" />
+          <button type="submit">Next</button>
+        </form>
+
         {data.map(item => (
           <li>
             {item.category} | {item.expense}
@@ -87,11 +87,11 @@ const App = function () {
   if (submit === 'next') {
     return (
       <div>
-        <form onSubmit={hello} className="App">
+        <form onSubmit={submitCategory} className="App">
           <CreatableSelect
             options={options}
             isClearable
-            onChange={test1}
+            onChange={handleCategory}
           />
           <button type="submit">Submit</button>
         </form>
