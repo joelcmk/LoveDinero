@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
+import Budget from './components/Budget';
 import './App.css';
 
 const App = function () {
@@ -70,7 +71,7 @@ const App = function () {
           <input name="income" id="income" />
           <button type="submit">Next</button>
         </form>
-
+        <Budget />
         {data.map(item => (
           <li>
             {item.category} | {item.expense}
