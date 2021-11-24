@@ -52,10 +52,10 @@ const App = function () {
   const array = data.map(item => (
     item.expense
   ));
-  let sum = 0;
+  let total = 0;
 
   for (let i = 0; i < array.length; i++) {
-    sum += array[i];
+    total += array[i];
   }
 
   if (submit === '') {
@@ -71,7 +71,7 @@ const App = function () {
           <input name="income" id="income" />
           <button type="submit">Next</button>
         </form>
-        <Budget />
+        <Budget total={total} />
         {data.map(item => (
           <li>
             {item.category} | {item.expense}
@@ -79,7 +79,7 @@ const App = function () {
         ))}
         <div className="total">
           <h3>Total:</h3>
-          {sum}
+          {total}
         </div>
       </div>
     );

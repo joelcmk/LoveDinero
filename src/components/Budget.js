@@ -1,72 +1,40 @@
+import '../App.css';
+
 function Budget(props) {
 
   return (
-    <div>
-      <div>
-        <div className="">
-          Home
-      </div>
+    <div className="budget">
+      <div className="expenses">
         <div>
-          expenses
-      </div>
+          <h2>Category</h2>
+          <p>Home</p>
+          <p>Food</p>
+          <p>shopping</p>
+          <p>Utilities</p>
+          <p>Household</p>
+          <p>Transportation</p>
+          <h3>Total: {props.total}</h3>
+        </div>
         <div>
-          Target
-      </div>
-      </div>
-      <div>
+          <h2>Expenses</h2>
+          <p>57</p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
         <div>
-          Food
-      </div>
-        <div>
-          expenses
-      </div>
-        <div>
-          Target
-      </div>
-      </div>
-      <div>
-        <div>
-          Shopping
-      </div>
-        <div>
-          expenses
-      </div>
-        <div>
-          Target
-      </div>
-      </div>
-      <div>
-        <div>
-          Utilities
-      </div>
-        <div>
-          expenses
-      </div>
-        <div>
-          Target
-      </div>
-      </div>
-      <div>
-        <div>
-          Household
-      </div>
-        <div>
-          expenses
-      </div>
-        <div>
-          Target
-      </div>
-      </div>
-      <div>
-        <div>
-          Transportation
-      </div>
-        <div>
-          expenses
-      </div>
-        <div>
-          Target
-      </div>
+          <h2>Target</h2>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+        </div>
       </div>
     </div>
   );
