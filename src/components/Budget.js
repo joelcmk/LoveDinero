@@ -17,23 +17,21 @@ function Budget(props) {
         </div>
         <div>
           <h2>Expenses</h2>
-          <p>57</p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>{props.homeTotal}</p>
+          <p>{props.foodTotal}</p>
+          <p>{props.shoppingTotal}</p>
+          <p>{props.utilitiesTotal}</p>
+          <p>{props.householdTotal}</p>
+          <p>{props.transportationTotal}</p>
         </div>
         <div>
           <h2>Target</h2>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
-          <p></p>
+          <p>600</p>
+          <p>600</p>
+          <p>600</p>
+          <p>600</p>
+          <p>600</p>
+          <p>600</p>
         </div>
       </div>
     </div>

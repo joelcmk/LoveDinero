@@ -58,6 +58,85 @@ const App = function () {
     total += array[i];
   }
 
+  // Home Total
+  let homeFilter = data.filter(item => item.category === 'home');
+
+  const home = homeFilter.map(item => (
+    item.expense
+  ));
+
+  let homeTotal = 0;
+
+  for (let i = 0; i < home.length; i++) {
+    homeTotal += home[i];
+  }
+
+  // Food Total
+  let foodFilter = data.filter(item => item.category === 'food');
+
+  const food = foodFilter.map(item => (
+    item.expense
+  ));
+
+  let foodTotal = 0;
+
+  for (let i = 0; i < food.length; i++) {
+    foodTotal += food[i];
+  };
+
+  // Shopping Total
+  let shoppingFilter = data.filter(item => item.category === 'shopping');
+
+  const shopping = shoppingFilter.map(item => (
+    item.expense
+  ));
+
+  let shoppingTotal = 0;
+
+  for (let i = 0; i < shopping.length; i++) {
+    shoppingTotal += shopping[i];
+  };
+
+  // Utilities Total
+  let utilitiesFilter = data.filter(item => item.category === 'utilities');
+
+  const utilities = utilitiesFilter.map(item => (
+    item.expense
+  ));
+
+  let utilitiesTotal = 0;
+
+  for (let i = 0; i < utilities.length; i++) {
+    utilitiesTotal += utilities[i];
+  };
+
+  // Household Total
+  let householdFilter = data.filter(item => item.category === 'household');
+
+  const household = householdFilter.map(item => (
+    item.expense
+  ));
+
+  let householdTotal = 0;
+
+  for (let i = 0; i < household.length; i++) {
+    householdTotal += household[i];
+  };
+
+  // Transportation Total
+  let transportationFilter = data.filter(item => item.category === 'transportation');
+
+  const transportation = transportationFilter.map(item => (
+    item.expense
+  ));
+
+  let transportationTotal = 0;
+
+  for (let i = 0; i < transportation.length; i++) {
+    transportationTotal += transportation[i];
+  };
+
+
   if (submit === '') {
     return (
       <div className="App">
@@ -71,7 +150,7 @@ const App = function () {
           <input name="income" id="income" />
           <button type="submit">Next</button>
         </form>
-        <Budget total={total} />
+        <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
         {data.map(item => (
           <li>
             {item.category} | {item.expense}
