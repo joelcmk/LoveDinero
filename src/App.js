@@ -5,9 +5,11 @@ import './App.css';
 
 const App = function () {
 
-  const [expense, setExpense] = useState('')
+  const [expense, setExpense] = useState('');
   const [submit, setSubmit] = useState('');
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('');
+  const [income, setIncome] = useState();
+  const [incomeTotal, setIncomeTotal] = useState('')
 
   const options = [
     { value: 'home', label: 'Home' },
@@ -48,7 +50,16 @@ const App = function () {
     setSubmit('')
   }
 
-  // Total
+  const hanldeIncomeChange = (e) => {
+    setIncome(e.target.value)
+  }
+
+  const handleIncome = (e) => {
+    e.preventDefault();
+    setIncomeTotal(income)
+  }
+
+  // Expenses Total
   const array = data.map(item => (
     item.expense
   ));
@@ -136,6 +147,7 @@ const App = function () {
     transportationTotal += transportation[i];
   };
 
+  console.log(incomeTotal)
 
   if (submit === '') {
     return (
@@ -145,10 +157,10 @@ const App = function () {
           <input name="expense" id="expense" value={expense} onChange={handleChange} />
           <button type="submit">Next</button>
         </form>
-        <form >
-          <label>Add an income</label>
-          <input name="income" id="income" />
-          <button type="submit">Next</button>
+        <form onSubmit={handleIncome}>
+          <label>Add income</label>
+          <input name="income" id="income" value={income} onChange={hanldeIncomeChange} />
+          <button type="submit">Submit</button>
         </form>
         <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
         {data.map(item => (

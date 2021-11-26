@@ -13,7 +13,6 @@ function Budget(props) {
           <p>Utilities</p>
           <p>Household</p>
           <p>Transportation</p>
-          <h3>Total: {props.total}</h3>
         </div>
         <div>
           <h2>Expenses</h2>
@@ -23,6 +22,7 @@ function Budget(props) {
           <p>{props.utilitiesTotal}</p>
           <p>{props.householdTotal}</p>
           <p>{props.transportationTotal}</p>
+          <h3>Total: {props.total}</h3>
         </div>
         <div>
           <h2>Target</h2>
