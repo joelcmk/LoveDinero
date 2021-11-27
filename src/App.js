@@ -163,6 +163,7 @@ const App = function () {
           <button type="submit">Submit</button>
         </form>
         <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
+        <h3>Expenses list</h3>
         {data.map(item => (
           <li>
             {item.category} | {item.expense}
