@@ -1,6 +1,25 @@
+import React, { useState } from 'react'
 import '../App.css';
 
 function Budget(props) {
+
+  const [homeTarget, setHomeTarget] = useState('600');
+  const [test, setTest] = useState('');
+
+
+  const updateTarget = (e) => {
+    setTest(e.target.value);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setHomeTarget(test);
+    setIsEditing(false);
+  }
+
+  const [isEditing, setIsEditing] = useState(false)
+
+
 
   return (
     <div className="budget">
@@ -26,12 +45,20 @@ function Budget(props) {
         </div>
         <div>
           <h2>Target</h2>
+          {
+            isEditing ?
+              <form onSubmit={handleSubmit}>
+                <input type='text' onChange={updateTarget} defaultValue={test} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)}>{homeTarget}</p>
+          }
           <p>600</p>
           <p>600</p>
           <p>600</p>
           <p>600</p>
           <p>600</p>
-          <p>600</p>
+          <div>
+          </div>
         </div>
       </div>
     </div>
