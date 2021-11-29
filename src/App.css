@@ -1,3 +1,6 @@
+body {
+  background-color: tomato;
+}
 .budget {
   display: flex;
   justify-content: center;
@@ -5,8 +8,9 @@
 
 .expenses {
   display: flex;
-  background-color: tomato;
-  width: 60%;
+  background-color: white;
+  width: 30%;
   justify-content: space-between;
   padding: 20px;
+  border-radius: 20px;
 }
