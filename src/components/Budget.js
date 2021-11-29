@@ -4,6 +4,7 @@ import '../App.css';
 function Budget(props) {
 
   const [homeTarget, setHomeTarget] = useState('600');
+  const [foodTarget, setFoodTarget] = useState('400')
   const [test, setTest] = useState('');
 
 
@@ -11,9 +12,9 @@ function Budget(props) {
     setTest(e.target.value);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, target) => {
     e.preventDefault();
-    setHomeTarget(test);
+    target(test);
     setIsEditing(false);
   }
 
@@ -47,16 +48,46 @@ function Budget(props) {
           <h2>Target</h2>
           {
             isEditing ?
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={(e) => handleSubmit(e, setHomeTarget)}>
                 <input type='text' onChange={updateTarget} defaultValue={test} />
               </form>
               : <p onDoubleClick={() => setIsEditing(true)}>{homeTarget}</p>
           }
-          <p>600</p>
-          <p>600</p>
-          <p>600</p>
-          <p>600</p>
-          <p>600</p>
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
+                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
+                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
+                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
+                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
+                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
           <div>
           </div>
         </div>
