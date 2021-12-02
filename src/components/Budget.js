@@ -5,16 +5,16 @@ function Budget(props) {
 
   const [homeTarget, setHomeTarget] = useState('600');
   const [foodTarget, setFoodTarget] = useState('400')
-  const [test, setTest] = useState('');
+  const [home, setHome] = useState('');
+  const [food, setFood] = useState('');
+  const [shopping, setShopping] = useState('');
+  const [utilities, setUtilities] = useState('');
+  const [household, setHousehold] = useState('');
+  const [transportation, setTransportation] = useState('');
 
-
-  const updateTarget = (e) => {
-    setTest(e.target.value);
-  }
-
-  const handleSubmit = (e, target) => {
+  const handleSubmit = (e, target, val) => {
     e.preventDefault();
-    target(test);
+    target(home);
     setIsEditing(false);
   }
 
@@ -48,43 +48,43 @@ function Budget(props) {
           <h2>Target</h2>
           {
             isEditing ?
-              <form onSubmit={(e) => handleSubmit(e, setHomeTarget)}>
-                <input type='text' onChange={updateTarget} defaultValue={test} />
+              <form onSubmit={(e) => handleSubmit(e, setHomeTarget, home)}>
+                <input type='text' onChange={(e) => setHome(e.target.value)} defaultValue={home} />
               </form>
               : <p onDoubleClick={() => setIsEditing(true)}>{homeTarget}</p>
           }
           {
             isEditing ?
-              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
-                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+              <form onSubmit={(e) => handleSubmit(e, setFoodTarget, food)}>
+                <input type='text' onChange={(e) => { setFood(e.target.value) }} defaultValue={food} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setShopping)}>
+                <input type='text' onChange={(e) => { setShopping(e.target.value) }} defaultValue={shopping} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setUtilities)}>
+                <input type='text' onChange={(e) => { setUtilities(e.target.value) }} defaultValue={utilities} />
+              </form>
+              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
+          }
+          {
+            isEditing ?
+              <form onSubmit={(e) => handleSubmit(e, setHousehold)}>
+                <input type='text' onChange={(e) => { setHousehold(e.target.value) }} defaultValue={household} />
               </form>
               : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
           }
           {
             isEditing ?
               <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
-                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
-              </form>
-              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
-          }
-          {
-            isEditing ?
-              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
-                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
-              </form>
-              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
-          }
-          {
-            isEditing ?
-              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
-                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
-              </form>
-              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
-          }
-          {
-            isEditing ?
-              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
-                <input type='text' onChange={(e) => { setTest(e.target.value) }} defaultValue={test} />
+                <input type='text' onChange={(e) => { setTransportation(e.target.value) }} defaultValue={transportation} />
               </form>
               : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
           }
