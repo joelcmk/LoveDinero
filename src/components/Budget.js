@@ -10,7 +10,7 @@ function Budget(props) {
   const [shopping, setShopping] = useState('');
   const [utilities, setUtilities] = useState('');
   const [household, setHousehold] = useState('');
-  const [transportation, setTransportation] = useState('');
+  const [transportation, setTransportation] = useState(40);
 
   const handleSubmit = (e, target, val) => {
     e.preventDefault();
@@ -19,6 +19,7 @@ function Budget(props) {
   }
 
   const [isEditing, setIsEditing] = useState(false)
+  const [test, setTest] = useState(true)
 
 
 
@@ -81,13 +82,23 @@ function Budget(props) {
               </form>
               : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
           }
-          {
-            isEditing ?
-              <form onSubmit={(e) => handleSubmit(e, setFoodTarget)}>
-                <input type='text' onChange={(e) => { setTransportation(e.target.value) }} defaultValue={transportation} />
-              </form>
-              : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
-          }
+          <div>
+            <p>{transportation}</p>
+            {
+              //if click button
+              test ?
+                <form>
+                  <p>45</p>
+                  <button onClick={() => setTest(false)} type="submit">edit</button>
+                </form>
+                : <form>
+                  <input onChange={(e) => setTransportation(e.target.value)} />
+                  <button onClick={() => setTest(true)}>Submit</button>
+                </form>
+              //then open input 
+              //after submit add data to transportation
+            }
+          </div>
           <div>
           </div>
         </div>
