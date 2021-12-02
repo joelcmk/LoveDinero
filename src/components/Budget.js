@@ -83,14 +83,13 @@ function Budget(props) {
               : <p onDoubleClick={() => setIsEditing(true)} >{foodTarget}</p>
           }
           <div>
-            <p>{transportation}</p>
             {
               //if click button
               test ?
-                <form>
-                  <p>45</p>
+                <div>
+                  <p>{transportation}</p>
                   <button onClick={() => setTest(false)} type="submit">edit</button>
-                </form>
+                </div>
                 : <form>
                   <input onChange={(e) => setTransportation(e.target.value)} />
                   <button onClick={() => setTest(true)}>Submit</button>
