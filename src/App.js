@@ -153,13 +153,11 @@ const App = function () {
     return (
       <div className="App">
         <form className="input" onSubmit={handleSubmit}>
-          <label>Add New Expense</label>
-          <input name="expense" id="expense" value={expense} onChange={handleChange} />
+          <input type="number" placeholder="New Expense" name="expense" id="expense" value={expense} onChange={handleChange} />
           <button type="submit">Next</button>
         </form>
-        <form onSubmit={handleIncome}>
-          <label>Add income</label>
-          <input name="income" id="income" value={income} onChange={hanldeIncomeChange} />
+        <form className="input" onSubmit={handleIncome}>
+          <input type="number" placeholder="Add Income" name="income" id="income" value={income} onChange={hanldeIncomeChange} />
           <button type="submit">Submit</button>
         </form>
         <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />

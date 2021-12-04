@@ -10,7 +10,8 @@ body {
   background-color: white;
   display: flex;
   justify-content: center;
-  border-radius: 20px
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
 td {
@@ -43,7 +44,7 @@ td:nth-child(2) {
 }
 
 .expenses tr:nth-child(even) {
-  background-color: #dddddd69;
+  background-color: #e0ffff;
 }
 
 .edit {
@@ -63,7 +64,27 @@ td:nth-child(2) {
   border-radius: 5px;
 }
 
+.input {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
 .input input{
   border: none;
   background-color: #e0ffff;
+  height: 35px;
+  border-radius: 5px;
+  margin-left: 10px;
+  text-align: center;
 }
+
+.input button {
+  margin-left: 10px;
+  background: #29C0AA;
+  border: none;
+  padding: 10px 20px;
+  width: 81.5px;
+  border-radius: 5px;
+}
+
