@@ -152,7 +152,7 @@ const App = function () {
   if (submit === '') {
     return (
       <div className="App">
-        <form onSubmit={handleSubmit}>
+        <form className="input" onSubmit={handleSubmit}>
           <label>Add New Expense</label>
           <input name="expense" id="expense" value={expense} onChange={handleChange} />
           <button type="submit">Next</button>
