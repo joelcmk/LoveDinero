@@ -10,7 +10,7 @@ function Budget(props) {
   const [shopping, setShopping] = useState('');
   const [utilities, setUtilities] = useState('');
   const [household, setHousehold] = useState('');
-  const [transportation, setTransportation] = useState(40);
+  const [transportation, setTransportation] = useState(`$${40}`);
 
   const handleSubmit = (e, target, val) => {
     e.preventDefault();
@@ -117,7 +117,7 @@ function Budget(props) {
                   <button onClick={() => setIsNotEditing(false)} type="submit">edit</button>
                 </div>
                 : <form>
-                  <input onChange={(e) => setTransportation(e.target.value)} />
+                  <input onChange={(e) => setTransportation(`$${e.target.value}`)} />
                   <button onClick={() => setIsNotEditing(true)}>Submit</button>
                 </form>
             }</td>
