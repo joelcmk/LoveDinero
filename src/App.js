@@ -3,6 +3,12 @@ import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget';
 import './App.css';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 const App = function () {
 
   const [expense, setExpense] = useState('');
@@ -147,8 +153,6 @@ const App = function () {
     transportationTotal += transportation[i];
   };
 
-  console.log(incomeTotal)
-
   if (submit === '') {
     return (
       <div className="App">
@@ -167,10 +171,6 @@ const App = function () {
             {item.category} | {item.expense}
           </li>
         ))}
-        <div className="total">
-          <h3>Total:</h3>
-          {total}
-        </div>
       </div>
     );
   }
