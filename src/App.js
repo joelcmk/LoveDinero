@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget';
+import ExpensesList from './components/ExpensesList';
 import './App.css';
 
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Switch,
 } from "react-router-dom";
 
 const App = function () {
@@ -140,6 +142,8 @@ const App = function () {
     householdTotal += household[i];
   };
 
+  ////<Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
+
   // Transportation Total
   let transportationFilter = data.filter(item => item.category === 'transportation');
 
@@ -155,23 +159,26 @@ const App = function () {
 
   if (submit === '') {
     return (
-      <div className="App">
-        <form className="input" onSubmit={handleSubmit}>
-          <input type="number" placeholder="New Expense" name="expense" id="expense" value={expense} onChange={handleChange} />
-          <button type="submit">Next</button>
-        </form>
-        <form className="input" onSubmit={handleIncome}>
-          <input type="number" placeholder="Add Income" name="income" id="income" value={income} onChange={hanldeIncomeChange} />
-          <button type="submit">Submit</button>
-        </form>
-        <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
-        <h3>Expenses list</h3>
-        {data.map(item => (
-          <li>
-            {item.category} | {item.expense}
-          </li>
-        ))}
-      </div>
+      <Router>
+        <div className="App">
+          <form className="input" onSubmit={handleSubmit}>
+            <input type="number" placeholder="New Expense" name="expense" id="expense" value={expense} onChange={handleChange} />
+            <button type="submit">Next</button>
+          </form>
+          <form className="input" onSubmit={handleIncome}>
+            <input type="number" placeholder="Add Income" name="income" id="income" value={income} onChange={hanldeIncomeChange} />
+            <button type="submit">Submit</button>
+          </form>
+          <Routes>
+            <Route exact path="/" element={
+              <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
+            } />
+            <Route exact path="/expenses" element={
+              <ExpensesList data={data} />
+            } />
+          </Routes>
+        </div>
+      </Router >
     );
   }
 
