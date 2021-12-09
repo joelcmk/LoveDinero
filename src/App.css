@@ -52,10 +52,6 @@ td:nth-child(2) {
   
 }
 
-.edit p {
-  
-}
-
 .edit button {
   margin-left: 10px;
   background: #29C0AA;
@@ -86,5 +82,19 @@ td:nth-child(2) {
   padding: 10px 20px;
   width: 81.5px;
   border-radius: 5px;
+}
+
+.expenses_list {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.expenses_list button {
+  background: #29C0AA;
+  border: none;
+  padding: 20px 20px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 

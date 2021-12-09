@@ -8,7 +8,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Switch,
 } from "react-router-dom";
 
 const App = function () {
@@ -35,16 +34,6 @@ const App = function () {
     { expense: 87, category: 'shopping' }
   ]);
 
-
-  const handleChange = (e) => {
-    setExpense(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSubmit('next');
-  };
-
   const handleCategory = (e) => {
     setCategory(e.value)
   };
@@ -58,14 +47,7 @@ const App = function () {
     setSubmit('')
   }
 
-  const hanldeIncomeChange = (e) => {
-    setIncome(e.target.value)
-  }
 
-  const handleIncome = (e) => {
-    e.preventDefault();
-    setIncomeTotal(income)
-  }
 
   // Expenses Total
   const array = data.map(item => (
@@ -142,8 +124,6 @@ const App = function () {
     householdTotal += household[i];
   };
 
-  ////<Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
-
   // Transportation Total
   let transportationFilter = data.filter(item => item.category === 'transportation');
 
@@ -161,17 +141,11 @@ const App = function () {
     return (
       <Router>
         <div className="App">
-          <form className="input" onSubmit={handleSubmit}>
-            <input type="number" placeholder="New Expense" name="expense" id="expense" value={expense} onChange={handleChange} />
-            <button type="submit">Next</button>
-          </form>
-          <form className="input" onSubmit={handleIncome}>
-            <input type="number" placeholder="Add Income" name="income" id="income" value={income} onChange={hanldeIncomeChange} />
-            <button type="submit">Submit</button>
-          </form>
           <Routes>
             <Route exact path="/" element={
-              <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal} />
+              <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal}
+                setExpense={setExpense} setSubmit={setSubmit} setIncome={setIncome} setIncomeTotal={setIncomeTotal} income={income} expense={expense}
+              />
             } />
             <Route exact path="/expenses" element={
               <ExpensesList data={data} />
