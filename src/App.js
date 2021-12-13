@@ -15,14 +15,12 @@ const App = function () {
   const [expense, setExpense] = useState('');
   const [submit, setSubmit] = useState('');
   const [category, setCategory] = useState('');
-  const [income, setIncome] = useState();
-  const [incomeTotal, setIncomeTotal] = useState('')
 
   const options = [
     { value: 'home', label: 'Home' },
     { value: 'food', label: 'Food' },
     { value: 'shopping', label: 'Shopping' },
-    { value: 'utillities', label: 'Utillities' },
+    { value: 'utilities', label: 'Utilities' },
     { value: 'household', label: 'Household' },
     { value: 'transportation', label: 'Transportation' },
     { value: 'other', label: 'Other' }
@@ -36,6 +34,7 @@ const App = function () {
 
   const handleCategory = (e) => {
     setCategory(e.value)
+    console.log(e.value)
   };
 
   const submitCategory = (e) => {
@@ -44,10 +43,8 @@ const App = function () {
       ...data,
       { expense: parseInt(expense), category: category }
     ]);
-    setSubmit('')
+    setSubmit('');
   }
-
-
 
   // Expenses Total
   const array = data.map(item => (
@@ -59,83 +56,26 @@ const App = function () {
     total += array[i];
   }
 
-  // Home Total
-  let homeFilter = data.filter(item => item.category === 'home');
+  // Categories total
+  function filter(category) {
 
-  const home = homeFilter.map(item => (
-    item.expense
-  ));
+    let filteredCategory = data.filter(item => item.category === category);
+    const result = filteredCategory.map(item => (
+      item.expense
+    ));
 
-  let homeTotal = 0;
-
-  for (let i = 0; i < home.length; i++) {
-    homeTotal += home[i];
+    return result
   }
 
-  // Food Total
-  let foodFilter = data.filter(item => item.category === 'food');
+  function categoryTotal(category) {
+    let total = 0;
 
-  const food = foodFilter.map(item => (
-    item.expense
-  ));
+    for (let i = 0; i < filter(category).length; i++) {
+      total += filter(category)[i];
+    };
 
-  let foodTotal = 0;
-
-  for (let i = 0; i < food.length; i++) {
-    foodTotal += food[i];
-  };
-
-  // Shopping Total
-  let shoppingFilter = data.filter(item => item.category === 'shopping');
-
-  const shopping = shoppingFilter.map(item => (
-    item.expense
-  ));
-
-  let shoppingTotal = 0;
-
-  for (let i = 0; i < shopping.length; i++) {
-    shoppingTotal += shopping[i];
-  };
-
-  // Utilities Total
-  let utilitiesFilter = data.filter(item => item.category === 'utilities');
-
-  const utilities = utilitiesFilter.map(item => (
-    item.expense
-  ));
-
-  let utilitiesTotal = 0;
-
-  for (let i = 0; i < utilities.length; i++) {
-    utilitiesTotal += utilities[i];
-  };
-
-  // Household Total
-  let householdFilter = data.filter(item => item.category === 'household');
-
-  const household = householdFilter.map(item => (
-    item.expense
-  ));
-
-  let householdTotal = 0;
-
-  for (let i = 0; i < household.length; i++) {
-    householdTotal += household[i];
-  };
-
-  // Transportation Total
-  let transportationFilter = data.filter(item => item.category === 'transportation');
-
-  const transportation = transportationFilter.map(item => (
-    item.expense
-  ));
-
-  let transportationTotal = 0;
-
-  for (let i = 0; i < transportation.length; i++) {
-    transportationTotal += transportation[i];
-  };
+    return total;
+  }
 
   if (submit === '') {
     return (
@@ -143,8 +83,9 @@ const App = function () {
         <div className="App">
           <Routes>
             <Route exact path="/" element={
-              <Budget total={total} homeTotal={homeTotal} foodTotal={foodTotal} shoppingTotal={shoppingTotal} utilitiesTotal={utilitiesTotal} householdTotal={householdTotal} transportationTotal={transportationTotal}
-                setExpense={setExpense} setSubmit={setSubmit} setIncome={setIncome} setIncomeTotal={setIncomeTotal} income={income} expense={expense}
+              <Budget total={total}
+                setExpense={setExpense} setSubmit={setSubmit} expense={expense}
+                categoryTotal={categoryTotal}
               />
             } />
             <Route exact path="/expenses" element={

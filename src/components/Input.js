@@ -7,25 +7,18 @@ function Input(props) {
     e.preventDefault();
     props.setSubmit('next');
   };
-
-  const hanldeIncomeChange = (e) => {
-    props.setIncome(e.target.value)
-  }
-
-  const handleIncome = (e) => {
-    e.preventDefault();
-    props.setIncomeTotal(props.income)
-  }
   return (
     <din>
       <form className="input" onSubmit={handleSubmit}>
         <input type="number" placeholder="New Expense" name="expense" id="expense" value={props.expense} onChange={handleChange} />
         <button type="submit">Next</button>
       </form>
-      <form className="input" onSubmit={handleIncome}>
-        <input type="number" placeholder="Add Income" name="income" id="income" value={props.income} onChange={hanldeIncomeChange} />
-        <button type="submit">Submit</button>
-      </form>
+      {/*
+        <form className="input" onSubmit={handleIncome}>
+          <input type="number" placeholder="Add Income" name="income" id="income" value={props.income} onChange={hanldeIncomeChange} />
+          <button type="submit">Submit</button>
+        </form>
+      */}
     </din>
   );
 }

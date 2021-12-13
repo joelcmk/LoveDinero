@@ -12,6 +12,7 @@ function Budget(props) {
   const [utilities, setUtilities] = useState('300');
   const [household, setHousehold] = useState('300');
   const [transportation, setTransportation] = useState('300');
+  const [other, setOther] = useState('300');
 
   const [homeEdit, setHomeEdit] = useState(true);
   const [foodEdit, setFoodEdit] = useState(true);
@@ -19,10 +20,13 @@ function Budget(props) {
   const [utilitiesEdit, setUtilitiesEdit] = useState(true);
   const [householdEdit, setHouseholdEdit] = useState(true);
   const [transportationEdit, setTransportationEdit] = useState(true);
+  const [otherEdit, setOtherEdit] = useState(true);
+
+
 
   return (
     <div>
-      <Input setExpense={props.setExpense} setSubmit={props.setSubmit} setIncome={props.setIncome} setIncomeTotal={props.setIncomeTotal} income={props.income} expense={props.expense} />
+      <Input setExpense={props.setExpense} setSubmit={props.setSubmit} income={props.income} expense={props.expense} />
       <div className="budget">
         <div className="test">
           <table className="expenses">
@@ -33,7 +37,7 @@ function Budget(props) {
             </tr>
             <tr>
               <td>Home</td>
-              <td><span>$</span>{props.homeTotal}</td>
+              <td><span>$</span>{props.categoryTotal('home')}</td>
               <td>{
                 homeEdit ?
                   <div className="edit">
@@ -48,7 +52,7 @@ function Budget(props) {
             </tr>
             <tr>
               <td>Food</td>
-              <td><span>$</span>{props.foodTotal}</td>
+              <td><span>$</span>{props.categoryTotal('food')}</td>
               <td className="test2">{
                 foodEdit ?
                   <div className="edit">
@@ -63,7 +67,7 @@ function Budget(props) {
             </tr>
             <tr>
               <td>Shopping</td>
-              <td><span>$</span>{props.shoppingTotal}</td>
+              <td><span>$</span>{props.categoryTotal('shopping')}</td>
               <td>{
                 shoppingEdit ?
                   <div className="edit">
@@ -78,7 +82,7 @@ function Budget(props) {
             </tr>
             <tr>
               <td>Utilities</td>
-              <td><span>$</span>{props.utilitiesTotal}</td>
+              <td><span>$</span>{props.categoryTotal('utilities')}</td>
               <td>{
                 utilitiesEdit ?
                   <div className="edit">
@@ -93,7 +97,7 @@ function Budget(props) {
             </tr>
             <tr>
               <td>Household</td>
-              <td><span>$</span>{props.householdTotal}</td>
+              <td><span>$</span>{props.categoryTotal('household')}</td>
               <td>{
                 householdEdit ?
                   <div className="edit">
@@ -108,7 +112,7 @@ function Budget(props) {
             </tr>
             <tr>
               <td>Transportation</td>
-              <td><span>$</span>{props.transportationTotal}</td>
+              <td><span>$</span>{props.categoryTotal('transportation')}</td>
               <td>{
                 transportationEdit ?
                   <div className="edit">
@@ -118,6 +122,21 @@ function Budget(props) {
                   : <form>
                     <input type="number" onChange={(e) => setTransportation(e.target.value)} />
                     <button onClick={() => setTransportationEdit(true)}>Submit</button>
+                  </form>
+              }</td>
+            </tr>
+            <tr>
+              <td>Other</td>
+              <td><span>$</span>{props.categoryTotal('other')}</td>
+              <td>{
+                otherEdit ?
+                  <div className="edit">
+                    <p className="test1"><span>$</span>{other}</p>
+                    <button onClick={() => setOtherEdit(false)} type="submit">edit</button>
+                  </div>
+                  : <form>
+                    <input type="number" onChange={(e) => setOther(e.target.value)} />
+                    <button onClick={() => setOtherEdit(true)}>Submit</button>
                   </form>
               }</td>
             </tr>
