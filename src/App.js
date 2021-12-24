@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget';
 import ExpensesList from './components/ExpensesList';
+import Login from './components/Login';
+import firebase from 'firebase/compat/app';
+import Profile from './components/Profile';
+import { getAuth } from "firebase/auth";
 import './App.css';
 
 import {
@@ -10,11 +14,25 @@ import {
   Route,
 } from "react-router-dom";
 
+var firebaseui = require('firebaseui');
+
+
 const App = function () {
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDv15hsf9FfUwHJsGbOhTncNKSq0kBBCcA",
+    authDomain: "budget-36a35.firebaseapp.com",
+    projectId: "budget-36a35",
+    storageBucket: "budget-36a35.appspot.com",
+    messagingSenderId: "669361891874",
+    appId: "1:669361891874:web:fb21613f657a5890b1387b"
+  };
+  firebase.initializeApp(firebaseConfig);
 
   const [expense, setExpense] = useState('');
   const [submit, setSubmit] = useState('');
   const [category, setCategory] = useState('');
+
 
   const options = [
     { value: 'home', label: 'Home' },
@@ -31,6 +49,8 @@ const App = function () {
     { expense: 56, category: 'home' },
     { expense: 87, category: 'shopping' }
   ]);
+
+  const [pp, setPp] = useState();
 
   const handleCategory = (e) => {
     setCategory(e.value)
@@ -77,6 +97,22 @@ const App = function () {
     return total;
   }
 
+  const handleCallback = (childData) => {
+    setPp(childData)
+  }
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  const [test, setTest] = useState();
+
+  useEffect(() => {
+    if (user) {
+      setTest(user.email)
+    }
+  }, [user]);
+  console.log(test)
+
   if (submit === '') {
     return (
       <Router>
@@ -85,11 +121,18 @@ const App = function () {
             <Route exact path="/" element={
               <Budget total={total}
                 setExpense={setExpense} setSubmit={setSubmit} expense={expense}
-                categoryTotal={categoryTotal}
+                categoryTotal={categoryTotal} parentCallback={handleCallback}
+                pp={pp}
               />
             } />
             <Route exact path="/expenses" element={
               <ExpensesList data={data} />
+            } />
+            <Route exact path="/login" element={
+              <Login />
+            } />
+            <Route exact path="/profile" element={
+              <Profile pp={pp} />
             } />
           </Routes>
         </div>

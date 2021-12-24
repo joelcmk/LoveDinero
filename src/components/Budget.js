@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { useNavigate, Link } from 'react-router-dom';
+import firebase from 'firebase/compat/app';
 import '../App.css';
+import Navbar from './Navbar';
 
-import { Link } from 'react-router-dom';
 
 function Budget(props) {
 
@@ -23,10 +26,78 @@ function Budget(props) {
   const [otherEdit, setOtherEdit] = useState(true);
 
 
+  const firebaseConfig = {
+    apiKey: "AIzaSyDv15hsf9FfUwHJsGbOhTncNKSq0kBBCcA",
+    authDomain: "budget-36a35.firebaseapp.com",
+    projectId: "budget-36a35",
+    storageBucket: "budget-36a35.appspot.com",
+    messagingSenderId: "669361891874",
+    appId: "1:669361891874:web:fb21613f657a5890b1387b"
+  };
+
+  const [data, setData] = useState('')
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+  const navigate = useNavigate();
+
+  const auth = getAuth();
+  /*  
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          //setUsername(user.displayName)
+          //setPp(user.photoURL)
+          //setEmail(user.email);
+          localStorage.setItem('username', user.displayName);
+          localStorage.setItem('email', user.email);
+          localStorage.setItem('pp', user.photoURL);
+        } else {
+          navigate('/login')
+  
+        }
+      });
+    });
+  
+  */
+
+  const user = auth.currentUser;
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        //setUsername(user.displayName)
+        //setPp(user.photoURL)
+        //setEmail(user.email);
+        setData(user.photoURL)
+        props.parentCallback(user.photoURL)
+      } else {
+        navigate('/login')
+
+      }
+    });
+  }, [user]);
+
+
+
+
+
+
+
+
+
 
   return (
     <div>
+      <Navbar />
       <Input setExpense={props.setExpense} setSubmit={props.setSubmit} income={props.income} expense={props.expense} />
+
       <div className="budget">
         <div className="test">
           <table className="expenses">

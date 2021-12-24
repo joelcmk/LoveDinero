@@ -1,0 +1,17 @@
+.nav {
+  background-color: #29C0A9;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pp {
+  height: 45px;
+  border-radius: 50%;
+
+}
+
+.nav h3 {
+
+}
