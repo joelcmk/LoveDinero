@@ -14,6 +14,8 @@ import {
   Route,
 } from "react-router-dom";
 
+import { getDatabase, ref, child, get } from "firebase/database";
+
 var firebaseui = require('firebaseui');
 
 
@@ -50,11 +52,26 @@ const App = function () {
     { expense: 87, category: 'shopping' }
   ]);
 
+
+  const dbRef = ref(getDatabase());
+  get(child(dbRef, `user/`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      setDa(snapshot.val())
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  const [da, setDa] = useState();
+
+  console.log(da)
+
   const [pp, setPp] = useState();
 
   const handleCategory = (e) => {
     setCategory(e.value)
-    console.log(e.value)
   };
 
   const submitCategory = (e) => {
@@ -111,7 +128,6 @@ const App = function () {
       setTest(user.email)
     }
   }, [user]);
-  console.log(test)
 
   if (submit === '') {
     return (
