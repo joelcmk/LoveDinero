@@ -15,10 +15,6 @@ function ExpensesList(props) {
   const [userId, setUserId] = useState();
   const [length, setLength] = useState();
 
-  const updateStarCount = (data) => {
-    console.log(data.joel)
-  }
-
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -35,35 +31,6 @@ function ExpensesList(props) {
     });
   }, [user]);
 
-  const handleChange = (e) => {
-    setTest(e.target.value)
-  }
-
-  const handleClick = () => {
-    console.log(length)
-    const db = getDatabase();
-    var integer = parseInt(test, 10);
-    set(ref(db, 'users/' + userId + `/${length}`), {
-      category: 'home',
-      expense: integer,
-    });
-  }
-
-  useEffect(() => {
-    const db = getDatabase();
-    const starCountRef = ref(db, 'users/' + userId);
-    onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-      const list = [];
-      for (let id in data) {
-        list.push(data[id])
-      }
-      setD(list)
-      setLength(list.length - 1 + 1)
-    });
-  }, [userId]);
-
-
 
   return (
     <div>
@@ -74,15 +41,6 @@ function ExpensesList(props) {
           {item.category} | {item.expense}
         </li>
       ))}
-      {
-        d ? d.map((todo) => <h1>{todo.category} | {todo.expense}</h1>) : ''
-      }
-      <div>
-        <form>
-          <input onChange={handleChange} value={test} type="number" />
-          <button onClick={handleClick}>Submit</button>
-        </form>
-      </div>
     </div>
   )
 }

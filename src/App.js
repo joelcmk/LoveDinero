@@ -47,14 +47,6 @@ const App = function () {
     { value: 'other', label: 'Other' }
   ]
 
-  /*
-    const [data, setData] = useState([
-      { expense: 13, category: 'home' },
-      { expense: 56, category: 'home' },
-      { expense: 87, category: 'shopping' }
-    ]);
-    */
-
   const auth = getAuth();
   const user = auth.currentUser;
 
@@ -62,7 +54,6 @@ const App = function () {
   const [pp, setPp] = useState();
 
   const [data, setData] = useState();
-  const [test2, setTest2] = useState();
   const [userId, setUserId] = useState();
   const [length, setLength] = useState();
 
@@ -70,12 +61,13 @@ const App = function () {
     setCategory(e.value)
   };
 
-  const submitCategory = (e) => {
-    e.preventDefault()
-    setData([
-      ...data,
-      { expense: parseInt(expense), category: category }
-    ]);
+  const submitCategory = () => {
+    const db = getDatabase();
+    var integer = parseInt(expense, 10);
+    set(ref(db, 'users/' + userId + `/${length}`), {
+      category: category,
+      expense: integer,
+    });
     setSubmit('');
   }
 
@@ -98,8 +90,6 @@ const App = function () {
       setLength(list.length - 1 + 1)
     });
   }, [userId]);
-
-  console.log(data)
 
   // Expenses Total
   const array = data ? data.map(item => (
@@ -136,17 +126,6 @@ const App = function () {
     setPp(childData)
   }
 
-
-  const [test, setTest] = useState();
-
-
-
-
-  useEffect(() => {
-    if (user) {
-      setTest(user.email)
-    }
-  }, [user]);
 
   if (submit === '') {
     return (
