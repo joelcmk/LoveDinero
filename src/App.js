@@ -14,7 +14,8 @@ import {
   Route,
 } from "react-router-dom";
 
-import { getDatabase, ref, child, get } from "firebase/database";
+import { getDatabase, ref, onValue, set } from "firebase/database";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 
 var firebaseui = require('firebaseui');
 
@@ -46,29 +47,24 @@ const App = function () {
     { value: 'other', label: 'Other' }
   ]
 
-  const [data, setData] = useState([
-    { expense: 13, category: 'home' },
-    { expense: 56, category: 'home' },
-    { expense: 87, category: 'shopping' }
-  ]);
+  /*
+    const [data, setData] = useState([
+      { expense: 13, category: 'home' },
+      { expense: 56, category: 'home' },
+      { expense: 87, category: 'shopping' }
+    ]);
+    */
 
+  const auth = getAuth();
+  const user = auth.currentUser;
 
-  const dbRef = ref(getDatabase());
-  get(child(dbRef, `user/`)).then((snapshot) => {
-    if (snapshot.exists()) {
-      setDa(snapshot.val())
-    } else {
-      console.log("No data available");
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
-
-  const [da, setDa] = useState();
-
-  console.log(da)
 
   const [pp, setPp] = useState();
+
+  const [data, setData] = useState();
+  const [test2, setTest2] = useState();
+  const [userId, setUserId] = useState();
+  const [length, setLength] = useState();
 
   const handleCategory = (e) => {
     setCategory(e.value)
@@ -83,10 +79,32 @@ const App = function () {
     setSubmit('');
   }
 
+  useEffect(() => {
+    if (user) {
+      setUserId(user.uid)
+    }
+  }, [user]);
+
+  useEffect(() => {
+    const db = getDatabase();
+    const starCountRef = ref(db, 'users/' + userId);
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      const list = [];
+      for (let id in data) {
+        list.push(data[id])
+      }
+      setData(list)
+      setLength(list.length - 1 + 1)
+    });
+  }, [userId]);
+
+  console.log(data)
+
   // Expenses Total
-  const array = data.map(item => (
+  const array = data ? data.map(item => (
     item.expense
-  ));
+  )) : '';
   let total = 0;
 
   for (let i = 0; i < array.length; i++) {
@@ -96,10 +114,10 @@ const App = function () {
   // Categories total
   function filter(category) {
 
-    let filteredCategory = data.filter(item => item.category === category);
-    const result = filteredCategory.map(item => (
+    let filteredCategory = data ? data.filter(item => item.category === category) : '';
+    const result = filteredCategory ? filteredCategory.map(item => (
       item.expense
-    ));
+    )) : '';
 
     return result
   }
@@ -118,10 +136,11 @@ const App = function () {
     setPp(childData)
   }
 
-  const auth = getAuth();
-  const user = auth.currentUser;
 
   const [test, setTest] = useState();
+
+
+
 
   useEffect(() => {
     if (user) {
