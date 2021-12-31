@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate, Link } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
 import '../App.css';
 import Navbar from './Navbar';
 
-import { getDatabase, ref, onValue, set, update } from "firebase/database";
+import { getDatabase, ref, onValue, update } from "firebase/database";
 
 
 function Budget(props) {
@@ -137,7 +137,7 @@ function Budget(props) {
     setOtherEdit(true);
   }
 
-  if (user) {
+  if (data) {
     return (
       <div>
         <Navbar />
@@ -157,7 +157,7 @@ function Budget(props) {
                 <td>{
                   homeEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.home : ''}</p>
+                      <p className="test1"><span>$</span>{data.home == undefined ? '0' : data.home}</p>
                       <button onClick={() => setHomeEdit(false)} type="submit">edit</button>
                     </div>
                     : <div>
@@ -172,7 +172,7 @@ function Budget(props) {
                 <td className="test2">{
                   foodEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.food : ''}</p>
+                      <p className="test1"><span>$</span>{data.food == undefined ? '0' : data.food}</p>
                       <button onClick={() => setFoodEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -187,7 +187,7 @@ function Budget(props) {
                 <td>{
                   shoppingEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.shopping : ''}</p>
+                      <p className="test1"><span>$</span>{data.shopping == undefined ? '0' : data.shopping}</p>
                       <button onClick={() => setShoppingEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -202,7 +202,7 @@ function Budget(props) {
                 <td>{
                   utilitiesEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.utilities : ''}</p>
+                      <p className="test1"><span>$</span>{data.utilities == undefined ? '0' : data.utilities}</p>
                       <button onClick={() => setUtilitiesEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -217,7 +217,7 @@ function Budget(props) {
                 <td>{
                   householdEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.household : ''}</p>
+                      <p className="test1"><span>$</span>{data.household == undefined ? '0' : data.household}</p>
                       <button onClick={() => setHouseholdEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -232,7 +232,7 @@ function Budget(props) {
                 <td>{
                   transportationEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.transportation : ''}</p>
+                      <p className="test1"><span>$</span>{data.transportation == undefined ? '0' : data.transportation}</p>
                       <button onClick={() => setTransportationEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -247,7 +247,7 @@ function Budget(props) {
                 <td>{
                   otherEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data ? data.other : ''}</p>
+                      <p className="test1"><span>$</span>{data.other == undefined ? '0' : data.other}</p>
                       <button onClick={() => setOtherEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
