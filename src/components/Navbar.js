@@ -6,6 +6,7 @@ import './nav.css';
 const Navbar = function (props) {
 
   const [pp, setPp] = useState();
+  const [profileName, setProfileName] = useState('')
 
   const auth = getAuth();
   const user = auth.currentUser;
@@ -15,7 +16,11 @@ const Navbar = function (props) {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        setPp(user.photoURL);
+        if (user.photoURL === null) {
+          setProfileName(user.displayName[0]);
+        } else {
+          setPp(user.photoURL);
+        }
       } else {
         navigate('/login')
 
@@ -23,13 +28,25 @@ const Navbar = function (props) {
     });
   }, [user]);
 
+
+  const profilePhoto = (name) => {
+    setProfileName(name[0])
+  }
+
+  console.log(profileName !== '')
+
+
   return (
     <div className="nav">
       <Link to="/">
         <h3>Home</h3>
       </Link>
       <Link to="/profile">
-        <img className="pp" src={pp} />
+        {profileName !== '' ?
+          <div className="profile_name"><p>{profileName}</p></div> :
+          <img className="pp" src={pp} />
+        }
+
       </Link>
     </div>
   )

@@ -45,13 +45,15 @@ const Profile = function (props) {
 
 
   return (
-    <div className="">
+    <div className="profile">
       <Navbar />
-      <div>
-        <img className="" src={pp} />
-        <h2>Hello {name}</h2>
-        <h2>Email: {email}</h2>
-        <button onClick={logout}>Log Out</button>
+      <div className="profile_card">
+        <div>
+          <img className="" src={pp} />
+          <h2>Hello {name}</h2>
+          <h2>Email: {email}</h2>
+          <button onClick={logout}>Log Out</button>
+        </div>
       </div>
     </div>
   )

@@ -59,6 +59,7 @@ function Budget(props) {
         //setEmail(user.email);
         setData(user.photoURL)
         props.parentCallback(user.photoURL)
+        console.log(user.photoURL)
         setUserId(uid)
       } else {
         navigate('/login')
