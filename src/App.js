@@ -129,23 +129,23 @@ const App = function () {
 
   if (submit === '') {
     return (
-      <Router>
+      <Router basename="/budget-calculator">
         <div className="App">
           <Routes>
-            <Route exact path="/budget-calculator" element={
+            <Route exact path="/" element={
               <Budget total={total}
                 setExpense={setExpense} setSubmit={setSubmit} expense={expense}
                 categoryTotal={categoryTotal} parentCallback={handleCallback}
                 pp={pp}
               />
             } />
-            <Route exact path="budget-calculator/expenses" element={
+            <Route exact path="/expenses" element={
               <ExpensesList data={data} />
             } />
-            <Route exact path="budget-calculator/login" element={
+            <Route exact path="login" element={
               <Login />
             } />
-            <Route exact path="budget-calculator/profile" element={
+            <Route exact path="/profile" element={
               <Profile pp={pp} />
             } />
           </Routes>
