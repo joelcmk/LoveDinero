@@ -132,20 +132,20 @@ const App = function () {
       <Router>
         <div className="App">
           <Routes>
-            <Route exact path="/" element={
+            <Route exact path="/budget-calculator" element={
               <Budget total={total}
                 setExpense={setExpense} setSubmit={setSubmit} expense={expense}
                 categoryTotal={categoryTotal} parentCallback={handleCallback}
                 pp={pp}
               />
             } />
-            <Route exact path="/expenses" element={
+            <Route exact path="budget-calculator/expenses" element={
               <ExpensesList data={data} />
             } />
-            <Route exact path="/login" element={
+            <Route exact path="budget-calculator/login" element={
               <Login />
             } />
-            <Route exact path="/profile" element={
+            <Route exact path="budget-calculator/profile" element={
               <Profile pp={pp} />
             } />
           </Routes>

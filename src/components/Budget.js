@@ -62,7 +62,7 @@ function Budget(props) {
         console.log(user.photoURL)
         setUserId(uid)
       } else {
-        navigate('/login')
+        navigate('budget-calculator/login')
 
       }
     });

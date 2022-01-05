@@ -36,7 +36,7 @@ const Profile = function (props) {
         setName(user.displayName)
         console.log(user)
       } else {
-        navigate('/login')
+        navigate('budget-calculator/login')
 
       }
     });
