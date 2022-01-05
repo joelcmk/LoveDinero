@@ -129,7 +129,7 @@ const App = function () {
 
   if (submit === '') {
     return (
-      <Router basename="/budget-calculator">
+      <Router>
         <div className="App">
           <Routes>
             <Route exact path="/" element={
