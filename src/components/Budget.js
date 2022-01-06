@@ -66,7 +66,9 @@ function Budget(props) {
 
       }
     });
-  }, [user]);
+  });
+
+  console.log(data)
 
   useEffect(() => {
     const db = getDatabase();
