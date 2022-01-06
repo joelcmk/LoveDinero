@@ -57,7 +57,7 @@ function Budget(props) {
         //setUsername(user.displayName)
         //setPp(user.photoURL)
         //setEmail(user.email);
-        setData(user.photoURL)
+        setData(user)
         props.parentCallback(user.photoURL)
         console.log(user.photoURL)
         setUserId(uid)
