@@ -34,7 +34,6 @@ const Profile = function (props) {
         setEmail(user.email)
         setPp(user.photoURL);
         setName(user.displayName)
-        console.log(user)
       } else {
         navigate('/login')
 

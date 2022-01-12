@@ -33,8 +33,6 @@ const Navbar = function (props) {
     setProfileName(name[0])
   }
 
-  console.log(profileName !== '')
-
 
   return (
     <div className="nav">

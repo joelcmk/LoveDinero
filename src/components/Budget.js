@@ -57,9 +57,7 @@ function Budget(props) {
         //setUsername(user.displayName)
         //setPp(user.photoURL)
         //setEmail(user.email);
-        setData(user)
         props.parentCallback(user.photoURL)
-        console.log(user.photoURL)
         setUserId(uid)
       } else {
         navigate('/login')
@@ -68,7 +66,7 @@ function Budget(props) {
     });
   });
 
-  console.log(data)
+
 
   useEffect(() => {
     const db = getDatabase();
@@ -140,6 +138,7 @@ function Budget(props) {
   }
 
   if (data) {
+    console.log(data.home)
     return (
       <div>
         <Navbar />
