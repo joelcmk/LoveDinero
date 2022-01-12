@@ -51,17 +51,10 @@ function Budget(props) {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
-        //setUsername(user.displayName)
-        //setPp(user.photoURL)
-        //setEmail(user.email);
-        props.parentCallback(user.photoURL)
         setUserId(uid)
       } else {
         navigate('/login')
-
       }
     });
   });
@@ -268,8 +261,6 @@ function Budget(props) {
       <p>loading</p>
     )
   }
-
-
 }
 
 export default Budget;
