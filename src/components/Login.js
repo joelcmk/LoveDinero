@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebaseui/dist/firebaseui.css'
 import 'firebase/compat/auth';

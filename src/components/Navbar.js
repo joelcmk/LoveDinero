@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate, Link } from 'react-router-dom';
 import './nav.css';
 
@@ -29,11 +29,6 @@ const Navbar = function (props) {
   }, [user]);
 
 
-  const profilePhoto = (name) => {
-    setProfileName(name[0])
-  }
-
-
   return (
     <div className="nav">
       <Link to="/">
@@ -44,7 +39,6 @@ const Navbar = function (props) {
           <div className="profile_name"><p>{profileName}</p></div> :
           <img className="pp" src={pp} />
         }
-
       </Link>
     </div>
   )

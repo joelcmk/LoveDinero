@@ -16,7 +16,6 @@ import {
 } from "react-router-dom";
 
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import { onAuthStateChanged, signOut } from "firebase/auth";
 
 var firebaseui = require('firebaseui');
 
