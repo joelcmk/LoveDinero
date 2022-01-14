@@ -1,12 +1,6 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getDatabase, ref, onValue, set } from "firebase/database";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 function ExpensesList(props) {
-
-
-
 
   return (
     <div>
