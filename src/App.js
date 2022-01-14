@@ -9,16 +9,12 @@ import { getAuth } from "firebase/auth";
 import './App.css';
 
 import {
-  BrowserRouter as Router,
   Routes,
   Route,
   HashRouter
 } from "react-router-dom";
 
 import { getDatabase, ref, onValue, set } from "firebase/database";
-
-var firebaseui = require('firebaseui');
-
 
 const App = function () {
 

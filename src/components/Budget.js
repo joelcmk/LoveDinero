@@ -47,7 +47,6 @@ function Budget(props) {
   const navigate = useNavigate();
   const auth = getAuth();
 
-  const user = auth.currentUser;
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -166,7 +165,7 @@ function Budget(props) {
                 <td className="test2">{
                   foodEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.food == undefined ? '0' : data.food}</p>
+                      <p className="test1"><span>$</span>{data.food === undefined ? '0' : data.food}</p>
                       <button onClick={() => setFoodEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -181,7 +180,7 @@ function Budget(props) {
                 <td>{
                   shoppingEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.shopping == undefined ? '0' : data.shopping}</p>
+                      <p className="test1"><span>$</span>{data.shopping === undefined ? '0' : data.shopping}</p>
                       <button onClick={() => setShoppingEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -196,7 +195,7 @@ function Budget(props) {
                 <td>{
                   utilitiesEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.utilities == undefined ? '0' : data.utilities}</p>
+                      <p className="test1"><span>$</span>{data.utilities === undefined ? '0' : data.utilities}</p>
                       <button onClick={() => setUtilitiesEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -211,7 +210,7 @@ function Budget(props) {
                 <td>{
                   householdEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.household == undefined ? '0' : data.household}</p>
+                      <p className="test1"><span>$</span>{data.household === undefined ? '0' : data.household}</p>
                       <button onClick={() => setHouseholdEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -226,7 +225,7 @@ function Budget(props) {
                 <td>{
                   transportationEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.transportation == undefined ? '0' : data.transportation}</p>
+                      <p className="test1"><span>$</span>{data.transportation === undefined ? '0' : data.transportation}</p>
                       <button onClick={() => setTransportationEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -241,7 +240,7 @@ function Budget(props) {
                 <td>{
                   otherEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.other == undefined ? '0' : data.other}</p>
+                      <p className="test1"><span>$</span>{data.other === undefined ? '0' : data.other}</p>
                       <button onClick={() => setOtherEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
