@@ -150,7 +150,7 @@ function Budget(props) {
                 <td>{
                   homeEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data.home == undefined ? '0' : data.home}</p>
+                      <p className="test1"><span>$</span>{data.home === undefined ? '0' : data.home}</p>
                       <button onClick={() => setHomeEdit(false)} type="submit">edit</button>
                     </div>
                     : <div>

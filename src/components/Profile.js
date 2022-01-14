@@ -25,7 +25,6 @@ const Profile = function (props) {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        const uid = user.uid;
         setEmail(user.email)
         setPp(user.photoURL);
         setName(user.displayName)
@@ -43,7 +42,7 @@ const Profile = function (props) {
       <Navbar />
       <div className="profile_card">
         <div>
-          <img className="" src={pp} />
+          <img className="" alt="profile_picture" src={pp} />
           <h2>Hello {name}</h2>
           <h2>Email: {email}</h2>
           <button onClick={logout}>Log Out</button>

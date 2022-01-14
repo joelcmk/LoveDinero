@@ -23,7 +23,6 @@ const Navbar = function (props) {
         }
       } else {
         navigate('/login')
-
       }
     });
   }, [user]);
@@ -37,7 +36,7 @@ const Navbar = function (props) {
       <Link to="/profile">
         {profileName !== '' ?
           <div className="profile_name"><p>{profileName}</p></div> :
-          <img className="pp" src={pp} />
+          <img className="pp" alt="profile_picture" src={pp} />
         }
       </Link>
     </div>
