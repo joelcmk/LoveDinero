@@ -98,6 +98,26 @@ td:nth-child(2) {
   margin-top: 20px;
 }
 
+.expenses_list_card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: white;
+  max-width: 300px;
+  border-radius: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.expenses_list_card h3 {
+  text-align: center;
+  width: 100%;
+}
+
+.expenses_list_ul li{
+list-style-type: none;
+}
+
 #container{
   width: 100%;
   height: 100%;
