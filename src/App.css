@@ -115,11 +115,14 @@ td:nth-child(2) {
 }
 
 .expenses_list_table tr:nth-child(even){
-  background-color: #dddddd;
+  background-color: #e0ffff;
 }
 
-.expenses_list_table tr, th{
- 
+.expenses_list_table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .expenses_list_expense {
