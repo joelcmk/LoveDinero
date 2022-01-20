@@ -8,7 +8,7 @@ function ExpensesList(props) {
       <Navbar />
       <div className="expenses_list_card">
         <h3>Expenses list</h3>
-        <table className="expenses_list_ul">
+        <table className="expenses_list_table">
           {props.data.map(item => (
             <tr>
               <td className="expenses_list_category">{item.category}</td>

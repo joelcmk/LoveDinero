@@ -114,8 +114,12 @@ td:nth-child(2) {
   width: 100%;
 }
 
-.expenses_list_ul li{
-list-style-type: none;
+.expenses_list_table tr:nth-child(even){
+  background-color: #dddddd;
+}
+
+.expenses_list_table tr, th{
+ 
 }
 
 .expenses_list_expense {
