@@ -11,7 +11,7 @@ function ExpensesList(props) {
         <ul className="expenses_list_ul">
           {props.data.map(item => (
             <li>
-              {item.expense} | {item.category}
+              <div className="expenses_list_expense">{item.expense}</div> <div className="expenses_list_category">{item.category}</div>
             </li>
           ))}
         </ul>
