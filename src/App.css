@@ -119,14 +119,11 @@ list-style-type: none;
 }
 
 .expenses_list_expense {
-  position: relative;
-  left: -20px;
+
 }
 
 .expenses_list_category {
-  position: relative;
-  bottom: 20px;
-  left: 20px;
+
 }
 
 #container{
