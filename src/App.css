@@ -125,12 +125,20 @@ td:nth-child(2) {
   margin-bottom: 20px;
 }
 
+.expenses_list_table button {
+  margin-left: 10px;
+  background: #29C0AA;
+  border: none;
+  padding: 0 20px;
+  border-radius: 5px;
+}
+
 .expenses_list_expense {
-  margin-right: 40px;
+  
 }
 
 .expenses_list_category {
-  padding-left: 60px;
+  
 }
 
 #container{

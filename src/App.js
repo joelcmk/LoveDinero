@@ -136,7 +136,7 @@ const App = function () {
               />
             } />
             <Route exact path="/expenses" element={
-              <ExpensesList data={data} />
+              <ExpensesList data={data} userId={userId} />
             } />
             <Route exact path="login" element={
               <Login />
