@@ -1,17 +1,39 @@
+import React, { useState, useEffect } from 'react'
 import Navbar from './Navbar';
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, update } from "firebase/database";
 import '../App.css'
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 function ExpensesList(props) {
 
-  function update() {
+  const [userId, setUserId] = useState()
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserId(user.uid)
+      } else {
+        navigate('/login')
+
+      }
+    });
+  }, [user]);
+
+  const db = getDatabase();
+
+  function updateTest() {
     const db = getDatabase();
-    update(ref(db, 'users' + props.userId), {
-
+    update(ref(db, 'users/' + userId + '/1'), {
+      expense: 50
     })
+    console.log(db)
   }
-
-  console.log(props.data)
 
   return (
     <div>
@@ -23,7 +45,7 @@ function ExpensesList(props) {
             <tr>
               <td className="expenses_list_category">{item.category}</td>
               <td className="expenses_list_expense">{item.expense}</td>
-              <td><button onClick={() => console.log(item.id)} >Update</button><button>Delete</button></td>
+              <td><button onClick={() => updateTest()} >Update</button><button>Delete</button></td>
             </tr>
           ))}
         </table>
