@@ -61,6 +61,7 @@ const App = function () {
     const db = getDatabase();
     var integer = parseInt(expense, 10);
     set(ref(db, 'users/' + userId + `/${length}`), {
+      id: length,
       category: category,
       expense: integer,
     });
