@@ -25,8 +25,6 @@ function ExpensesList(props) {
     });
   }, [user]);
 
-  const db = getDatabase();
-
   function updateTest() {
     const db = getDatabase();
     update(ref(db, 'users/' + userId + '/1'), {
