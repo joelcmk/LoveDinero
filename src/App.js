@@ -19,12 +19,12 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 const App = function () {
 
   const firebaseConfig = {
-    apiKey: "AIzaSyDv15hsf9FfUwHJsGbOhTncNKSq0kBBCcA",
-    authDomain: "budget-36a35.firebaseapp.com",
-    projectId: "budget-36a35",
-    storageBucket: "budget-36a35.appspot.com",
-    messagingSenderId: "669361891874",
-    appId: "1:669361891874:web:fb21613f657a5890b1387b"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: "budget-d9651.firebaseapp.com",
+    projectId: "budget-d9651",
+    storageBucket: "budget-d9651.appspot.com",
+    messagingSenderId: process.env.REACT_APP_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
   };
   firebase.initializeApp(firebaseConfig);
 

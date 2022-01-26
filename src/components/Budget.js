@@ -30,19 +30,11 @@ function Budget(props) {
   const [userId, setUserId] = useState();
 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDv15hsf9FfUwHJsGbOhTncNKSq0kBBCcA",
-    authDomain: "budget-36a35.firebaseapp.com",
-    projectId: "budget-36a35",
-    storageBucket: "budget-36a35.appspot.com",
-    messagingSenderId: "669361891874",
-    appId: "1:669361891874:web:fb21613f657a5890b1387b"
-  };
+
 
   const [data, setData] = useState('')
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+
 
   const navigate = useNavigate();
   const auth = getAuth();

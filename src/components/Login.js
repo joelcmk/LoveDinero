@@ -6,17 +6,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 const Login = function () {
 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDv15hsf9FfUwHJsGbOhTncNKSq0kBBCcA",
-    authDomain: "budget-36a35.firebaseapp.com",
-    projectId: "budget-36a35",
-    storageBucket: "budget-36a35.appspot.com",
-    messagingSenderId: "669361891874",
-    appId: "1:669361891874:web:fb21613f657a5890b1387b"
-  };
 
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
 
 
   const uiConfig = {
@@ -30,6 +20,8 @@ const Login = function () {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     ],
   };
+
+  console.log(process.env.REACT_APP_APP_ID)
 
   return (
     <div>
