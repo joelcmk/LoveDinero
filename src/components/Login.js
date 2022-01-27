@@ -5,10 +5,6 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 
 const Login = function () {
 
-
-
-
-
   const uiConfig = {
     // Popup signin flow rather than redirect flow.
     signInFlow: 'popup',
@@ -20,8 +16,6 @@ const Login = function () {
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     ],
   };
-
-  console.log(process.env.REACT_APP_APP_ID)
 
   return (
     <div>

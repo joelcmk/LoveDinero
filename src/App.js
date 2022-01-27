@@ -11,16 +11,17 @@ import './App.css';
 import {
   Routes,
   Route,
-  HashRouter
+  HashRouter,
 } from "react-router-dom";
 
-import { getDatabase, ref, onValue, set } from "firebase/database";
+import { getDatabase, ref, onValue, set, get, child } from "firebase/database";
 
 const App = function () {
 
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "budget-d9651.firebaseapp.com",
+    databaseURL: "https://budget-d9651-default-rtdb.firebaseio.com",
     projectId: "budget-d9651",
     storageBucket: "budget-d9651.appspot.com",
     messagingSenderId: process.env.REACT_APP_SENDER_ID,
@@ -68,11 +69,15 @@ const App = function () {
     setSubmit('');
   }
 
+
+
   useEffect(() => {
     if (user) {
       setUserId(user.uid)
     }
   }, [user]);
+
+
 
   useEffect(() => {
     const db = getDatabase();
@@ -84,9 +89,10 @@ const App = function () {
         list.push(data[id])
       }
       setData(list)
-      setLength(list.length - 1 + 1)
+      setLength(list.length + 1)
     });
   }, [userId]);
+
 
   // Expenses Total
   const array = data ? data.map(item => (
@@ -123,7 +129,6 @@ const App = function () {
     setPp(childData)
   }
 
-
   if (submit === '') {
     return (
       <HashRouter>
@@ -133,7 +138,7 @@ const App = function () {
               <Budget total={total}
                 setExpense={setExpense} setSubmit={setSubmit} expense={expense}
                 categoryTotal={categoryTotal} parentCallback={handleCallback}
-                pp={pp}
+                pp={pp} data={data}
               />
             } />
             <Route exact path="/expenses" element={
