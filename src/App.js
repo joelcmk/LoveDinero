@@ -12,6 +12,7 @@ import {
   Routes,
   Route,
   HashRouter,
+  BrowserRouter
 } from "react-router-dom";
 
 import { getDatabase, ref, onValue, set, get, child } from "firebase/database";
@@ -131,7 +132,7 @@ const App = function () {
 
   if (submit === '') {
     return (
-      <HashRouter>
+      <BrowserRouter basename="budget-calculator">
         <div className="App">
           <Routes>
             <Route exact path="/" element={
@@ -152,7 +153,7 @@ const App = function () {
             } />
           </Routes>
         </div>
-      </HashRouter >
+      </BrowserRouter >
     );
   }
 
