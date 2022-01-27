@@ -31,6 +31,9 @@ function Budget(props) {
   const [target, setTarget] = useState('')
   const [data, setData] = useState('');
 
+
+
+
   const auth = getAuth();
   const user = auth.currentUser;
 
