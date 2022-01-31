@@ -122,21 +122,26 @@ function Budget(props) {
     setOtherEdit(true);
   }
 
+
+
   useEffect(() => {
-    setData(props.data)
-    if (data) {
-      setTarget(data.length - 1)
-    } else {
-      console.log('loading')
-    }
+    const db = getDatabase();
+    const starCountRef = ref(db, 'users/' + userId + '/target');
+    onValue(starCountRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data == null) {
+        setTarget({ home: 0 })
+      } else {
+        setTarget(data)
+      }
+    });
+  }, [userId]);
 
-  });
+  console.log(target)
 
 
-
-
-  if (target > 0) {
-    console.log(target)
+  if (target) {
+    console.log(target.shopping)
     return (
       <div>
         <Navbar />
@@ -156,7 +161,7 @@ function Budget(props) {
                 <td>{
                   homeEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].home === undefined ? '0' : data[target].home}</p>
+                      <p className="test1"><span>$</span>{target.home == undefined ? '0' : target.home}</p>
                       <button onClick={() => setHomeEdit(false)} type="submit">edit</button>
                     </div>
                     : <div>
@@ -171,7 +176,7 @@ function Budget(props) {
                 <td className="test2">{
                   foodEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].food === undefined ? '0' : data[target].food}</p>
+                      <p className="test1"><span>$</span>{target.food == undefined ? '0' : target.food}</p>
                       <button onClick={() => setFoodEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -186,7 +191,7 @@ function Budget(props) {
                 <td>{
                   shoppingEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].shopping === undefined ? '0' : data[target].shopping}</p>
+                      <p className="test1"><span>$</span>{target.shopping == undefined ? '0' : target.shopping}</p>
                       <button onClick={() => setShoppingEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -201,7 +206,7 @@ function Budget(props) {
                 <td>{
                   utilitiesEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].utilities === undefined ? '0' : data[target].utilities}</p>
+                      <p className="test1"><span>$</span>{target.utilities == undefined ? '0' : target.utilities}</p>
                       <button onClick={() => setUtilitiesEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -216,7 +221,7 @@ function Budget(props) {
                 <td>{
                   householdEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].household === undefined ? '0' : data[target].household}</p>
+                      <p className="test1"><span>$</span>{target.household == undefined ? '0' : target.household}</p>
                       <button onClick={() => setHouseholdEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -231,7 +236,7 @@ function Budget(props) {
                 <td>{
                   transportationEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].transportation === undefined ? '0' : data[target].transportation}</p>
+                      <p className="test1"><span>$</span>{target.transportation == undefined ? '0' : target.transportation}</p>
                       <button onClick={() => setTransportationEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
@@ -246,7 +251,7 @@ function Budget(props) {
                 <td>{
                   otherEdit ?
                     <div className="edit">
-                      <p className="test1"><span>$</span>{data[target].other === undefined ? '0' : data[target].other}</p>
+                      <p className="test1"><span>$</span>{target.other == undefined ? '0' : target.other}</p>
                       <button onClick={() => setOtherEdit(false)} type="submit">edit</button>
                     </div>
                     : <form>
