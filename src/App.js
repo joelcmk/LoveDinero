@@ -3,6 +3,7 @@ import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget';
 import ExpensesList from './components/ExpensesList';
 import Login from './components/Login/Login';
+import Signup from './components/Signup/Signup';
 import firebase from 'firebase/compat/app';
 import Profile from './components/Profile';
 import { getAuth } from 'firebase/auth';
@@ -143,6 +144,7 @@ const App = function () {
               element={<ExpensesList data={data} userId={userId} />}
             />
             <Route exact path="login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
             <Route exact path="/profile" element={<Profile pp={pp} />} />
           </Routes>
         </div>
