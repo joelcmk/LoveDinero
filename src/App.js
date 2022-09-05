@@ -2,38 +2,31 @@ import React, { useState, useEffect } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget';
 import ExpensesList from './components/ExpensesList';
-import Login from './components/Login';
+import Login from './components/Login/Login';
 import firebase from 'firebase/compat/app';
 import Profile from './components/Profile';
-import { getAuth } from "firebase/auth";
+import { getAuth } from 'firebase/auth';
 import './App.css';
 
-import {
-  Routes,
-  Route,
-  HashRouter,
-  BrowserRouter
-} from "react-router-dom";
+import { Routes, Route, HashRouter, BrowserRouter } from 'react-router-dom';
 
-import { getDatabase, ref, onValue, set, get, child } from "firebase/database";
+import { getDatabase, ref, onValue, set, get, child } from 'firebase/database';
 
 const App = function () {
-
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: "budget-d9651.firebaseapp.com",
-    databaseURL: "https://budget-d9651-default-rtdb.firebaseio.com",
-    projectId: "budget-d9651",
-    storageBucket: "budget-d9651.appspot.com",
+    authDomain: 'budget-d9651.firebaseapp.com',
+    databaseURL: 'https://budget-d9651-default-rtdb.firebaseio.com',
+    projectId: 'budget-d9651',
+    storageBucket: 'budget-d9651.appspot.com',
     messagingSenderId: process.env.REACT_APP_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID
+    appId: process.env.REACT_APP_APP_ID,
   };
   firebase.initializeApp(firebaseConfig);
 
   const [expense, setExpense] = useState('');
   const [submit, setSubmit] = useState('');
   const [category, setCategory] = useState('');
-
 
   const options = [
     { value: 'home', label: 'Home' },
@@ -42,12 +35,11 @@ const App = function () {
     { value: 'utilities', label: 'Utilities' },
     { value: 'household', label: 'Household' },
     { value: 'transportation', label: 'Transportation' },
-    { value: 'other', label: 'Other' }
-  ]
+    { value: 'other', label: 'Other' },
+  ];
 
   const auth = getAuth();
   const user = auth.currentUser;
-
 
   const [pp, setPp] = useState();
 
@@ -56,7 +48,7 @@ const App = function () {
   const [length, setLength] = useState();
 
   const handleCategory = (e) => {
-    setCategory(e.value)
+    setCategory(e.value);
   };
 
   const submitCategory = () => {
@@ -68,17 +60,13 @@ const App = function () {
       expense: integer,
     });
     setSubmit('');
-  }
-
-
+  };
 
   useEffect(() => {
     if (user) {
-      setUserId(user.uid)
+      setUserId(user.uid);
     }
   }, [user]);
-
-
 
   useEffect(() => {
     const db = getDatabase();
@@ -87,18 +75,15 @@ const App = function () {
       const data = snapshot.val();
       const list = [];
       for (let id in data) {
-        list.push(data[id])
+        list.push(data[id]);
       }
-      setData(list)
-      setLength(list.length + 1)
+      setData(list);
+      setLength(list.length + 1);
     });
   }, [userId]);
 
-
   // Expenses Total
-  const array = data ? data.map(item => (
-    item.expense
-  )) : '';
+  const array = data ? data.map((item) => item.expense) : '';
   let total = 0;
 
   for (let i = 0; i < array.length; i++) {
@@ -107,13 +92,14 @@ const App = function () {
 
   // Categories total
   function filter(category) {
+    let filteredCategory = data
+      ? data.filter((item) => item.category === category)
+      : '';
+    const result = filteredCategory
+      ? filteredCategory.map((item) => item.expense)
+      : '';
 
-    let filteredCategory = data ? data.filter(item => item.category === category) : '';
-    const result = filteredCategory ? filteredCategory.map(item => (
-      item.expense
-    )) : '';
-
-    return result
+    return result;
   }
 
   function categoryTotal(category) {
@@ -121,39 +107,46 @@ const App = function () {
 
     for (let i = 0; i < filter(category).length; i++) {
       total += filter(category)[i];
-    };
+    }
 
     return total;
   }
 
   const handleCallback = (childData) => {
-    setPp(childData)
-  }
+    setPp(childData);
+  };
 
   if (submit === '') {
     return (
       <BrowserRouter basename="budget-calculator">
         <div className="App">
           <Routes>
-            <Route exact path="/" element={
-              <Budget total={total}
-                setExpense={setExpense} setSubmit={setSubmit} expense={expense}
-                categoryTotal={categoryTotal} parentCallback={handleCallback}
-                pp={pp} data={data}
-              />
-            } />
-            <Route exact path="/expenses" element={
-              <ExpensesList data={data} userId={userId} />
-            } />
-            <Route exact path="login" element={
-              <Login />
-            } />
-            <Route exact path="/profile" element={
-              <Profile pp={pp} />
-            } />
+            <Route
+              exact
+              path="/"
+              element={
+                <Budget
+                  total={total}
+                  setExpense={setExpense}
+                  setSubmit={setSubmit}
+                  expense={expense}
+                  categoryTotal={categoryTotal}
+                  parentCallback={handleCallback}
+                  pp={pp}
+                  data={data}
+                />
+              }
+            />
+            <Route
+              exact
+              path="/expenses"
+              element={<ExpensesList data={data} userId={userId} />}
+            />
+            <Route exact path="login" element={<Login />} />
+            <Route exact path="/profile" element={<Profile pp={pp} />} />
           </Routes>
         </div>
-      </BrowserRouter >
+      </BrowserRouter>
     );
   }
 

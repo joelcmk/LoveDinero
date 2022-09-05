@@ -1,0 +1,95 @@
+.Login {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.login-image {
+  background-color: red;
+  width: 50%;
+  height: 100%;
+  background: url('../../images/login.jpg') no-repeat center;
+  background-size: cover;
+  background-size: 200% auto;
+}
+
+.login-image img {
+  width: auto;
+  height: auto;
+  max-width: 300px;
+}
+
+.login-auth {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-auth p {
+  margin-bottom: 0;
+}
+
+.login-auth h2 {
+  margin-top: 0;
+}
+
+.demo {
+  width: 241px;
+  height: 40px;
+  background-color: #ff6060;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #ff6060;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.email-login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.email-login input {
+  width: 241px;
+  height: 40px;
+  border-color: gray;
+  border-style: solid;
+  border-width: 0.75px;
+  border-radius: 3px;
+  margin: 5px;
+}
+
+.email-login button {
+  margin: 0 auto;
+  background-color: #29c0aa;
+  border-style: solid;
+  border-color: #29c0aa;
+  border-radius: 3px;
+  margin: 5px;
+  width: 246.5px;
+  height: 40px;
+  color: white;
+  font-weight: 600;
+}
+
+.google {
+  width: 241px;
+  height: 40px;
+  background-color: #747474;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #747474;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  margin: 5px;
+}
