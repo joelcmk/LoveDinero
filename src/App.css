@@ -1,5 +1,4 @@
 body {
-  background-color: tomato;
 }
 .budget {
   display: flex;
@@ -22,7 +21,7 @@ th {
   height: 52px;
 }
 
-table:{
+table: {
   margin-bottom: 20px;
 }
 
@@ -34,7 +33,6 @@ td:last-child {
 td:nth-child(2) {
   text-align: center;
 }
-
 
 .expenses {
   border-collapse: collapse;
@@ -49,12 +47,11 @@ td:nth-child(2) {
 
 .edit {
   display: flex;
-  
 }
 
 .edit button {
   margin-left: 10px;
-  background: #29C0AA;
+  background: #29c0aa;
   border: none;
   padding: 0 20px;
   border-radius: 5px;
@@ -66,7 +63,7 @@ td:nth-child(2) {
   margin-top: 10px;
 }
 
-.input input{
+.input input {
   border: none;
   background-color: #e0ffff;
   height: 35px;
@@ -77,7 +74,7 @@ td:nth-child(2) {
 
 .input button {
   margin-left: 10px;
-  background: #29C0AA;
+  background: #29c0aa;
   border: none;
   padding: 10px 20px;
   width: 81.5px;
@@ -91,7 +88,7 @@ td:nth-child(2) {
 }
 
 .expenses_list button {
-  background: #29C0AA;
+  background: #29c0aa;
   border: none;
   padding: 20px 20px;
   border-radius: 5px;
@@ -114,7 +111,7 @@ td:nth-child(2) {
   width: 100%;
 }
 
-.expenses_list_table tr:nth-child(even){
+.expenses_list_table tr:nth-child(even) {
   background-color: #e0ffff;
 }
 
@@ -127,26 +124,24 @@ td:nth-child(2) {
 
 .expenses_list_table button {
   margin-left: 10px;
-  background: #29C0AA;
+  background: #29c0aa;
   border: none;
   padding: 0 20px;
   border-radius: 5px;
 }
 
 .expenses_list_expense {
-  
 }
 
 .expenses_list_category {
-  
 }
 
-#container{
+#container {
   width: 100%;
   height: 100%;
   background: #ccc;
   padding: 100px;
 }
-.mdl-button--raised.mdl-button--colored{
+.mdl-button--raised.mdl-button--colored {
   background: cyan;
 }
