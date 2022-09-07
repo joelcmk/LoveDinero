@@ -117,3 +117,10 @@ span:first-child {
   max-width: 256.5px;
   color: red;
 }
+
+.love-dinero {
+  font-size: 70px;
+  font-weight: 600;
+  height: 70px;
+  margin-bottom: 15px;
+}
