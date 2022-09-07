@@ -28,9 +28,11 @@
   align-items: center;
 }
 
-.login-auth h2 {
-  margin-top: 0;
-  margin-left: 5px;
+.love-dinero {
+  font-size: 70px;
+  font-weight: 600;
+  height: 70px;
+  margin-bottom: 15px;
 }
 
 .demo {

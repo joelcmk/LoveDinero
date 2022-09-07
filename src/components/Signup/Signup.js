@@ -53,10 +53,10 @@ const Signup = function () {
     <div className="Login">
       <div className="login-image"></div>
       <div className="login-auth">
-        <h1>
+        <div className="love-dinero">
           <span>Love</span>
           <span>Dinero</span>
-        </h1>
+        </div>
 
         <div className="email-login">
           <p>Hey there,</p>
