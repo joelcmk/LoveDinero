@@ -119,7 +119,7 @@ const App = function () {
 
   if (submit === '') {
     return (
-      <BrowserRouter basename="budget-calculator">
+      <HashRouter basename="budget-calculator">
         <div className="App">
           <Routes>
             <Route
@@ -143,12 +143,12 @@ const App = function () {
               path="/expenses"
               element={<ExpensesList data={data} userId={userId} />}
             />
-            <Route exact path="login" element={<Login />} />
-            <Route exact path="/signup" element={<Signup />} />
-            <Route exact path="/profile" element={<Profile pp={pp} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/profile" element={<Profile pp={pp} />} />
           </Routes>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 
