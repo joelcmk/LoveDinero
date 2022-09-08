@@ -77,11 +77,11 @@ const Signup = function () {
               type="password"
               onChange={handlePassword}
             />
-            <button>Create</button>
+            <button className="login-btn">Create</button>
           </form>
         </div>
         <p>
-          Already have an account? <a href="login">Log in here</a>
+          Already have an account? <Link to="/login">Log in here</Link>
         </p>
       </div>
     </div>

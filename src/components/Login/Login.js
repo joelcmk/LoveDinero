@@ -25,7 +25,6 @@ const Login = function () {
   const provider = new GoogleAuthProvider();
 
   const test = (e) => {
-    e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -94,6 +93,18 @@ const Login = function () {
     setPassword(e.target.value);
   };
 
+  const demo = (e) => {
+    return new Promise((resolve, reject) => {
+      setEmail('demo@demo.com');
+      setPassword(process.env.REACT_APP_DEMO_PASSWORD);
+    });
+  };
+
+  async function demoSubmit() {
+    await demo();
+    test();
+  }
+
   console.log(email);
 
   <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
@@ -133,17 +144,18 @@ const Login = function () {
               type="password"
               onChange={handlePassword}
             />
-            <button>Submit</button>
+            <button className="login-btn">Submit</button>
+            <a onClick={googleLogin} className="google">
+              Or sign-in with google
+            </a>
+            <button onClick={demoSubmit} className="demo">
+              Or try a demo
+            </button>
           </form>
         </div>
-        <a onClick={googleLogin} className="google">
-          Or sign-in with google
-        </a>
-        <a href="#" className="demo">
-          Or try a demo
-        </a>
+
         <p>
-          Don't have an account? <a href="signup">Join free today</a>
+          Don't have an account? <Link to="/signup">Join free today</Link>
         </p>
       </div>
     </div>
