@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/budget-calculator/static/css/main.f960a44f.chunk.css",
-    "main.js": "/budget-calculator/static/js/main.72c2cd0c.chunk.js",
-    "main.js.map": "/budget-calculator/static/js/main.72c2cd0c.chunk.js.map",
-    "runtime-main.js": "/budget-calculator/static/js/runtime-main.5af13525.js",
-    "runtime-main.js.map": "/budget-calculator/static/js/runtime-main.5af13525.js.map",
-    "static/css/2.28499ece.chunk.css": "/budget-calculator/static/css/2.28499ece.chunk.css",
-    "static/js/2.d7e3b355.chunk.js": "/budget-calculator/static/js/2.d7e3b355.chunk.js",
-    "static/js/2.d7e3b355.chunk.js.map": "/budget-calculator/static/js/2.d7e3b355.chunk.js.map",
-    "static/js/3.6da7f7e2.chunk.js": "/budget-calculator/static/js/3.6da7f7e2.chunk.js",
-    "static/js/3.6da7f7e2.chunk.js.map": "/budget-calculator/static/js/3.6da7f7e2.chunk.js.map",
-    "index.html": "/budget-calculator/index.html",
-    "static/css/2.28499ece.chunk.css.map": "/budget-calculator/static/css/2.28499ece.chunk.css.map",
-    "static/css/main.f960a44f.chunk.css.map": "/budget-calculator/static/css/main.f960a44f.chunk.css.map",
-    "static/js/2.d7e3b355.chunk.js.LICENSE.txt": "/budget-calculator/static/js/2.d7e3b355.chunk.js.LICENSE.txt",
-    "static/media/Signup.css": "/budget-calculator/static/media/login.c11377dc.jpg"
+    "main.css": "/static/css/main.1b56b341.chunk.css",
+    "main.js": "/static/js/main.72c2cd0c.chunk.js",
+    "main.js.map": "/static/js/main.72c2cd0c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fe7ee8d5.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fe7ee8d5.js.map",
+    "static/css/2.28499ece.chunk.css": "/static/css/2.28499ece.chunk.css",
+    "static/js/2.e50e55c4.chunk.js": "/static/js/2.e50e55c4.chunk.js",
+    "static/js/2.e50e55c4.chunk.js.map": "/static/js/2.e50e55c4.chunk.js.map",
+    "static/js/3.6da7f7e2.chunk.js": "/static/js/3.6da7f7e2.chunk.js",
+    "static/js/3.6da7f7e2.chunk.js.map": "/static/js/3.6da7f7e2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.28499ece.chunk.css.map": "/static/css/2.28499ece.chunk.css.map",
+    "static/css/main.1b56b341.chunk.css.map": "/static/css/main.1b56b341.chunk.css.map",
+    "static/js/2.e50e55c4.chunk.js.LICENSE.txt": "/static/js/2.e50e55c4.chunk.js.LICENSE.txt",
+    "static/media/Signup.css": "/static/media/login.c11377dc.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5af13525.js",
+    "static/js/runtime-main.fe7ee8d5.js",
     "static/css/2.28499ece.chunk.css",
-    "static/js/2.d7e3b355.chunk.js",
-    "static/css/main.f960a44f.chunk.css",
+    "static/js/2.e50e55c4.chunk.js",
+    "static/css/main.1b56b341.chunk.css",
     "static/js/main.72c2cd0c.chunk.js"
   ]
 }
