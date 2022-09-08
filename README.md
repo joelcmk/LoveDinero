@@ -31,14 +31,6 @@ I’m a web developer based in Austin, Tx, and on a mission to grow as a develop
 - Firebase
 - CreatableSelect
 
-## Features
-
-- Features
-- Set targets and expenses for seven different categories
-- List of expenses 
-- Login with email or Google account
-- Easy to use
-
 
 ## Installation
 
