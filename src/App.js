@@ -119,7 +119,7 @@ const App = function () {
 
   if (submit === '') {
     return (
-      <HashRouter basename="/budget-calculator">
+      <HashRouter basename="budget-calculator">
         <div className="App">
           <Routes>
             <Route
