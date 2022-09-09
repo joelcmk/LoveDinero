@@ -19,7 +19,7 @@ LoveDinero is easy to use, it was made with the end-user in mind. You can sign i
 
 LoveDinero 2.0 will offer a range of new features. Starting with an enhanced UI/UX, it has been made to be easy to use with a modern look. 
 - Introducing data visualization. It will entirely change the way of looking at your finances. With more information available at your fingers. 
-- Dark mode on. Easily turn ON/OFF dark mode according to your preferences. 
+- Dark mode on! Easily turn ON/OFF dark mode according to your preferences. 
 - Access your finances from anywhere quickly. LoveDinero 2.0 will include an improved responsive design. 
 
 ## About the Developer
