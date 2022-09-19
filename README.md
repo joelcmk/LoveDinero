@@ -11,7 +11,7 @@ LoveDinero is easy to use, it was made with the end-user in mind. You can sign i
 
 [Live site](https://joelcmk.github.io/budget-calculator)
 
-![My Image](https://github.com/joelcmk/joelsaucedo.com/blob/main/src/Images/budget.png#gh-dark-mode-only)
+![My Image](https://github.com/joelcmk/joelsaucedo.com/blob/main/src/Images/budget.png)
 
 ## UPDATE (V2 is coming out soon) 
 ![Safari • Dark Mode ON (1)](https://user-images.githubusercontent.com/57118300/189250437-087450d4-b8e3-45e8-b94c-03a1b42f1c14.png#gh-light-mode-only)
