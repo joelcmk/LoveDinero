@@ -1,0 +1,64 @@
+body {
+}
+.budget {
+  display: flex;
+  justify-content: center;
+}
+
+.test {
+  background-color: #F3F3F3;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+td {
+  padding-left: 20px;
+}
+
+th {
+  height: 52px;
+}
+
+table: {
+  margin-bottom: 20px;
+}
+
+td:last-child {
+  float: right;
+  padding-right: 20px;
+}
+
+td:last-child p {
+  padding-right:20px;
+}
+
+td:nth-child(2) {
+  text-align: center;
+}
+
+.expenses {
+  border-collapse: collapse;
+  width: 360px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.expenses tr:nth-child(even) {
+  background-color: #A9E2DF;
+}
+
+.update_button {
+  background-color: #EE7874;
+  color: white;
+  border: 0;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 23px;
+}
+
+
+
+
+

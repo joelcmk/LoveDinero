@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Input from '../components/Input';
+import Input from '../../components/Input';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { useNavigate, Link } from 'react-router-dom';
 import firebase from 'firebase/compat/app';
-import '../App.css';
-import Navbar from './Navbar';
+import './Budget.css';
+import Navbar from '../Navbar';
 
 import { getDatabase, ref, onValue, update, set, child } from "firebase/database";
 
@@ -177,7 +177,7 @@ function Budget(props) {
                   foodEdit ?
                     <div className="edit">
                       <p className="test1"><span>$</span>{target.food == undefined ? '0' : target.food}</p>
-                      <button onClick={() => setFoodEdit(false)} type="submit">edit</button>
+                      
                     </div>
                     : <form>
                       <input type="number" onChange={(e) => setFood(e.target.value)} />
@@ -192,7 +192,7 @@ function Budget(props) {
                   shoppingEdit ?
                     <div className="edit">
                       <p className="test1"><span>$</span>{target.shopping == undefined ? '0' : target.shopping}</p>
-                      <button onClick={() => setShoppingEdit(false)} type="submit">edit</button>
+                      
                     </div>
                     : <form>
                       <input type="number" onChange={(e) => setShopping(e.target.value)} />
@@ -207,7 +207,7 @@ function Budget(props) {
                   utilitiesEdit ?
                     <div className="edit">
                       <p className="test1"><span>$</span>{target.utilities == undefined ? '0' : target.utilities}</p>
-                      <button onClick={() => setUtilitiesEdit(false)} type="submit">edit</button>
+                      
                     </div>
                     : <form>
                       <input type="number" onChange={(e) => setUtilities(e.target.value)} />
@@ -222,7 +222,7 @@ function Budget(props) {
                   householdEdit ?
                     <div className="edit">
                       <p className="test1"><span>$</span>{target.household == undefined ? '0' : target.household}</p>
-                      <button onClick={() => setHouseholdEdit(false)} type="submit">edit</button>
+                      
                     </div>
                     : <form>
                       <input type="number" onChange={(e) => setHousehold(e.target.value)} />
@@ -237,7 +237,7 @@ function Budget(props) {
                   transportationEdit ?
                     <div className="edit">
                       <p className="test1"><span>$</span>{target.transportation == undefined ? '0' : target.transportation}</p>
-                      <button onClick={() => setTransportationEdit(false)} type="submit">edit</button>
+                     
                     </div>
                     : <form>
                       <input type="number" onChange={(e) => setTransportation(e.target.value)} />
@@ -252,13 +252,18 @@ function Budget(props) {
                   otherEdit ?
                     <div className="edit">
                       <p className="test1"><span>$</span>{target.other == undefined ? '0' : target.other}</p>
-                      <button onClick={() => setOtherEdit(false)} type="submit">edit</button>
+                      
                     </div>
                     : <form>
                       <input type="number" onChange={(e) => setOther(e.target.value)} />
                       <button onClick={() => submitOther()}>Submit</button>
                     </form>
                 }</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td><button className="update_button">update</button></td>
               </tr>
             </table>
           </div>
