@@ -32,7 +32,7 @@ const Navbar = function (props) {
   return (
     <div className="nav">
       <Link to="/">
-        <h3>Home</h3>
+        <h3>LoveDinero</h3>
       </Link>
       <Link to="/profile">
         {profileName !== '' ? (

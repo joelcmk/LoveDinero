@@ -24,7 +24,8 @@ const Login = function () {
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
 
-  const test = (e) => {
+  const emailSubmit = (e) => {
+    e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
@@ -93,19 +94,10 @@ const Login = function () {
     setPassword(e.target.value);
   };
 
-  const demo = (e) => {
-    return new Promise((resolve, reject) => {
-      setEmail('demo@demo.com');
-      setPassword(process.env.REACT_APP_DEMO_PASSWORD);
-    });
+  const demoLogin = (e) => {
+    setEmail('demo@demo.com');
+    setPassword(process.env.REACT_APP_DEMO_PASSWORD);
   };
-
-  async function demoSubmit() {
-    await demo();
-    test();
-  }
-
-  console.log(email);
 
   <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
 
@@ -129,7 +121,7 @@ const Login = function () {
             )}
           </div>
 
-          <form onSubmit={test}>
+          <form onSubmit={emailSubmit}>
             <p>Email</p>
             <input
               placeholder="you@email.com"
@@ -148,7 +140,7 @@ const Login = function () {
             <a onClick={googleLogin} className="google">
               Or sign-in with google
             </a>
-            <button onClick={demoSubmit} className="demo">
+            <button onClick={demoLogin} className="demo">
               Or try a demo
             </button>
           </form>
