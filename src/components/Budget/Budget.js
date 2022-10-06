@@ -104,6 +104,12 @@ function Budget(props) {
     if (updateTarget) {
       update(ref(db, 'users/' + userId + '/target'), {
         home: home,
+        food: food,
+        shopping: shopping,
+        utilities: utilities,
+        household: household,
+        transportation: transportation,
+        other: other,
       });
     }
   }
@@ -183,18 +189,21 @@ function Budget(props) {
       category: utilities,
       expenses: props.categoryTotal('utilities'),
       target: target.utilities,
+      updateTarget: setUtilities,
     },
     {
       categoryName: 'Household',
       category: household,
       expenses: props.categoryTotal('household'),
       target: target.household,
+      updateTarget: setHousehold,
     },
     {
       categoryName: 'Transportation',
       category: transportation,
       expenses: props.categoryTotal('transportation'),
       target: target.transportation,
+      updateTarget: setTransportation,
     },
     {
       categoryName: 'Other',
@@ -245,7 +254,11 @@ function Budget(props) {
                           <input
                             type="number"
                             onChange={(e) => item.updateTarget(e.target.value)}
-                            value={item.category ? item.category : '0'}
+                            value={
+                              item.category
+                                ? item.category
+                                : item.updateTarget('0')
+                            }
                           />
                         </div>
                       )}
