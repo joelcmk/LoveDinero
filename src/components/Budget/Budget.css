@@ -6,7 +6,7 @@ body {
 }
 
 .test {
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   display: flex;
   justify-content: center;
   border-radius: 20px;
@@ -31,7 +31,7 @@ td:last-child {
 }
 
 td:last-child p {
-  padding-right:20px;
+  padding-right: 20px;
 }
 
 td:nth-child(2) {
@@ -46,11 +46,11 @@ td:nth-child(2) {
 }
 
 .expenses tr:nth-child(even) {
-  background-color: #A9E2DF;
+  background-color: #a9e2df;
 }
 
 .update_button {
-  background-color: #EE7874;
+  background-color: #ee7874;
   color: white;
   border: 0;
   border-radius: 20px;
@@ -58,7 +58,12 @@ td:nth-child(2) {
   margin-top: 23px;
 }
 
-
-
-
-
+.budget input {
+  text-align: center;
+  padding: 0;
+  height: 20px;
+  width: 70px;
+  margin: 16px 0;
+  border-width: 0 0 3px 0;
+  border-color: #ee7874;
+}
