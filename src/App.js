@@ -6,6 +6,7 @@ import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
 import firebase from 'firebase/compat/app';
 import Profile from './components/Profile';
+import Navbar from './components/Navbar';
 import { getAuth } from 'firebase/auth';
 import './App.css';
 
@@ -121,6 +122,7 @@ const App = function () {
     return (
       <HashRouter>
         <div className="App">
+          <Navbar />
           <Routes>
             <Route
               exact

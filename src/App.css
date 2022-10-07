@@ -6,7 +6,7 @@ body {
 }
 
 .test {
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   display: flex;
   justify-content: center;
   border-radius: 20px;
@@ -42,7 +42,7 @@ td:nth-child(2) {
 }
 
 .expenses tr:nth-child(even) {
-  background-color: #A9E2DF;
+  background-color: #a9e2df;
 }
 
 .edit {
@@ -71,6 +71,11 @@ td:nth-child(2) {
   border-radius: 5px;
   margin-left: 10px;
   text-align: center;
+  --shadow-color: 0deg 0% 60%;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
 }
 
 .input button {
@@ -80,6 +85,11 @@ td:nth-child(2) {
   padding: 10px 20px;
   width: 81.5px;
   border-radius: 5px;
+  --shadow-color: 0deg 0% 60%;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
 }
 
 .expenses_list {
@@ -94,6 +104,11 @@ td:nth-child(2) {
   padding: 20px 20px;
   border-radius: 5px;
   margin-top: 20px;
+  --shadow-color: 0deg 0% 60%;
+  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
+    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
+    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
+    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
 }
 
 .expenses_list_card {
