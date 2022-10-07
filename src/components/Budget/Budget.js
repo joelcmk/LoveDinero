@@ -2,28 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Input from '../../components/Input';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
-import firebase from 'firebase/compat/app';
 import './Budget.css';
-import Navbar from '../Navbar';
 
-import {
-  getDatabase,
-  ref,
-  onValue,
-  update,
-  set,
-  child,
-} from 'firebase/database';
+import { getDatabase, ref, onValue, update } from 'firebase/database';
 
 function Budget(props) {
-  const [homeEdit, setHomeEdit] = useState(true);
-  const [foodEdit, setFoodEdit] = useState(true);
-  const [shoppingEdit, setShoppingEdit] = useState(true);
-  const [utilitiesEdit, setUtilitiesEdit] = useState(true);
-  const [householdEdit, setHouseholdEdit] = useState(true);
-  const [transportationEdit, setTransportationEdit] = useState(true);
-  const [otherEdit, setOtherEdit] = useState(true);
-
   const [userId, setUserId] = useState();
 
   useEffect(() => {
@@ -46,20 +29,7 @@ function Budget(props) {
     });
   }, [userId]);
 
-  useEffect(() => {
-    const db = getDatabase();
-    const starCountRef = ref(db, 'users/' + userId + '/target');
-    onValue(starCountRef, (snapshot) => {
-      const data = snapshot.val();
-      const list = [];
-      for (let id in data) {
-        list.push(data);
-      }
-      //setTarget(data)
-    });
-  }, []);
   const [target, setTarget] = useState('');
-
   const [home, setHome] = useState('0');
   const [food, setFood] = useState('0');
   const [shopping, setShopping] = useState('0');
@@ -68,16 +38,11 @@ function Budget(props) {
   const [transportation, setTransportation] = useState('0');
   const [other, setOther] = useState('0');
 
-  const [data, setData] = useState('');
-
   const [updateTarget, setUpdateTarget] = useState(false);
 
   const auth = getAuth();
-  const user = auth.currentUser;
 
   const navigate = useNavigate();
-
-  console.log(transportation);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -89,14 +54,6 @@ function Budget(props) {
       }
     });
   });
-
-  function submitHome() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      home: home,
-    });
-    setUpdateTarget(!updateTarget);
-  }
 
   function allCategoriesTarget() {
     setUpdateTarget(!updateTarget);
@@ -114,54 +71,6 @@ function Budget(props) {
     }
   }
 
-  function submitFood() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      food: food,
-    });
-    setFoodEdit(true);
-  }
-
-  function submitShopping() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      shopping: shopping,
-    });
-    setShoppingEdit(true);
-  }
-
-  function submitUtilities() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      utilities: utilities,
-    });
-    setUtilitiesEdit(true);
-  }
-
-  function submitHousehold() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      household: household,
-    });
-    setHouseholdEdit(true);
-  }
-
-  function submitTransportation() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      transportation: transportation,
-    });
-    setTransportationEdit(true);
-  }
-
-  function submitOther() {
-    const db = getDatabase();
-    update(ref(db, 'users/' + userId + '/target'), {
-      other: other,
-    });
-    setOtherEdit(true);
-  }
-
   const allData = [
     {
       categoryName: 'Home',
@@ -171,7 +80,7 @@ function Budget(props) {
       updateTarget: setHome,
     },
     {
-      categoryName: 'food',
+      categoryName: 'Food',
       category: food,
       expenses: props.categoryTotal('food'),
       target: target.food,
@@ -216,8 +125,7 @@ function Budget(props) {
 
   if (target) {
     return (
-      <div>
-        <Navbar />
+      <>
         <Input
           setExpense={props.setExpense}
           setSubmit={props.setSubmit}
@@ -284,7 +192,7 @@ function Budget(props) {
         <Link className="expenses_list" to="/expenses">
           <button>Expenses List</button>
         </Link>
-      </div>
+      </>
     );
   } else {
     return <p>loading</p>;
