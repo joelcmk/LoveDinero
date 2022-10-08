@@ -147,7 +147,10 @@ const App = function () {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
-            <Route path="/profile" element={<Profile pp={pp} />} />
+            <Route
+              path="/profile"
+              element={<Profile pp={pp} total={total} />}
+            />
           </Routes>
         </div>
       </HashRouter>

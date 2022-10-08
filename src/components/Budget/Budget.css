@@ -2,7 +2,8 @@ body {
 }
 .budget {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .test {
@@ -74,14 +75,4 @@ td:nth-child(2) {
 
 .update_button:hover {
   text-decoration: underline;
-}
-
-.budget input {
-  text-align: center;
-  padding: 0;
-  height: 20px;
-  width: 70px;
-  margin: 16px 0;
-  border-width: 0 0 3px 0;
-  border-color: #ee7874;
 }
