@@ -54,40 +54,6 @@ td:nth-child(2) {
 }
 */
 
-.input {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.input input {
-  border: none;
-  background-color: #e0ffff;
-  height: 35px;
-  border-radius: 5px;
-  margin-left: 10px;
-  text-align: center;
-  --shadow-color: 0deg 0% 60%;
-  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
-    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
-    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
-}
-
-.input button {
-  margin-left: 10px;
-  background: #29c0aa;
-  border: none;
-  padding: 10px 20px;
-  width: 81.5px;
-  border-radius: 5px;
-  --shadow-color: 0deg 0% 60%;
-  box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
-    0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
-    2.1px 4.1px 5.2px -1.7px hsl(var(--shadow-color) / 0.36),
-    5px 10px 12.6px -2.5px hsl(var(--shadow-color) / 0.36);
-}
-
 .expenses_list {
   display: flex;
   justify-content: center;
