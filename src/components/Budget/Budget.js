@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../../components/Input';
+import Chart from '../Chart/Chart';
+import NewExpense from '../NewExpense/NewExpense';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import './Budget.css';
@@ -123,17 +125,13 @@ function Budget(props) {
     },
   ];
 
+  console.log(userId);
+
   if (target) {
     return (
       <>
-        <Input
-          setExpense={props.setExpense}
-          setSubmit={props.setSubmit}
-          income={props.income}
-          expense={props.expense}
-        />
-
         <div className="budget">
+          <Chart />
           <div className="test">
             <table className="expenses">
               <tr>
@@ -188,10 +186,15 @@ function Budget(props) {
               </tr>
             </table>
           </div>
+          <NewExpense
+            setExpense={props.setExpense}
+            setSubmit={props.setSubmit}
+            income={props.income}
+            expense={props.expense}
+            userId={userId}
+            length={props.length}
+          />
         </div>
-        <Link className="expenses_list" to="/expenses">
-          <button>Expenses List</button>
-        </Link>
       </>
     );
   } else {
