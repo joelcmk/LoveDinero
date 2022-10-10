@@ -10,9 +10,9 @@ import Navbar from './components/Navbar';
 import { getAuth } from 'firebase/auth';
 import './App.css';
 
-import { Routes, Route, HashRouter, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 
-import { getDatabase, ref, onValue, set, get, child } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 
 const App = function () {
   const firebaseConfig = {
@@ -27,18 +27,6 @@ const App = function () {
   firebase.initializeApp(firebaseConfig);
 
   const [expense, setExpense] = useState('');
-  const [submit, setSubmit] = useState('');
-  const [category, setCategory] = useState('');
-
-  const options = [
-    { value: 'home', label: 'Home' },
-    { value: 'food', label: 'Food' },
-    { value: 'shopping', label: 'Shopping' },
-    { value: 'utilities', label: 'Utilities' },
-    { value: 'household', label: 'Household' },
-    { value: 'transportation', label: 'Transportation' },
-    { value: 'other', label: 'Other' },
-  ];
 
   const auth = getAuth();
   const user = auth.currentUser;
@@ -48,21 +36,6 @@ const App = function () {
   const [data, setData] = useState();
   const [userId, setUserId] = useState();
   const [length, setLength] = useState();
-
-  const handleCategory = (e) => {
-    setCategory(e.value);
-  };
-
-  const submitCategory = () => {
-    const db = getDatabase();
-    var integer = parseInt(expense, 10);
-    set(ref(db, 'users/' + userId + `/${length}`), {
-      id: length,
-      category: category,
-      expense: integer,
-    });
-    setSubmit('');
-  };
 
   useEffect(() => {
     if (user) {
@@ -120,61 +93,40 @@ const App = function () {
 
   console.log(userId);
 
-  if (submit === '') {
-    return (
-      <HashRouter>
-        <div className="App">
-          <Navbar />
-          <Routes>
-            <Route
-              exact
-              path="/"
-              element={
-                <Budget
-                  total={total}
-                  setExpense={setExpense}
-                  setSubmit={setSubmit}
-                  expense={expense}
-                  categoryTotal={categoryTotal}
-                  parentCallback={handleCallback}
-                  pp={pp}
-                  data={data}
-                  userId={userId}
-                  length={length}
-                />
-              }
-            />
-            <Route
-              exact
-              path="/expenses"
-              element={<ExpensesList data={data} userId={userId} />}
-            />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route
-              path="/profile"
-              element={<Profile pp={pp} total={total} />}
-            />
-          </Routes>
-        </div>
-      </HashRouter>
-    );
-  }
-
-  if (submit === 'next') {
-    return (
-      <div>
-        <form onSubmit={submitCategory} className="App">
-          <CreatableSelect
-            options={options}
-            isClearable
-            onChange={handleCategory}
+  return (
+    <HashRouter>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <Budget
+                total={total}
+                setExpense={setExpense}
+                expense={expense}
+                categoryTotal={categoryTotal}
+                parentCallback={handleCallback}
+                pp={pp}
+                data={data}
+                userId={userId}
+                length={length}
+              />
+            }
           />
-          <button type="submit">Submit</button>
-        </form>
+          <Route
+            exact
+            path="/expenses"
+            element={<ExpensesList data={data} userId={userId} />}
+          />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<Profile pp={pp} total={total} />} />
+        </Routes>
       </div>
-    );
-  }
+    </HashRouter>
+  );
 };
 
 export default App;
