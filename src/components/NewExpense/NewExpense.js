@@ -2,41 +2,31 @@ import React, { useState } from 'react';
 import chroma from 'chroma-js';
 import './NewExpense.css';
 import CreatableSelect from 'react-select/creatable';
-import Select, { StylesConfig } from 'react-select';
+
+import { getDatabase, ref, set } from 'firebase/database';
 
 function NewExpense(props) {
   const [category, setCategory] = useState('');
+  const [expense, setExpense] = useState('');
 
   const handleChange = (e) => {
-    props.setExpense(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    props.setSubmit('next');
+    setExpense(e.target.value);
   };
 
   const handleCategory = (e) => {
     setCategory(e.value);
   };
 
-  const customStyles = {
-    menu: (provided, state) => ({
-      ...provided,
-      borderBottom: '1px dotted pink',
-      padding: 20,
-    }),
-
-    control: (_, { selectProps: { width } }) => ({
-      width: width,
-    }),
-
-    singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
-
-      return { ...provided, opacity, transition };
-    },
+  const submitCategory = (e) => {
+    e.preventDefault();
+    const db = getDatabase();
+    var integer = parseInt(expense, 10);
+    set(ref(db, 'users/' + props.userId + `/${props.length}`), {
+      id: props.length,
+      category: category,
+      expense: integer,
+    });
+    setCategory('');
   };
 
   const options = [
@@ -110,17 +100,21 @@ function NewExpense(props) {
         className="category-list"
         styles={colourStyles}
         options={options}
+        onChange={handleCategory}
       />
-      <span>Add amount</span>
-      <form className="input" onSubmit={handleSubmit}>
-        <input
-          type="number"
-          placeholder="$"
-          name="expense"
-          id="expense"
-          value={props.expense}
-          onChange={handleChange}
-        />
+      <form className="input" onSubmit={submitCategory}>
+        <div className="amount">
+          <span>Add amount</span>
+          <input
+            type="number"
+            placeholder="$"
+            name="expense"
+            id="expense"
+            value={expense}
+            onChange={handleChange}
+          />
+        </div>
+
         <button type="submit">Submit</button>
       </form>
     </div>

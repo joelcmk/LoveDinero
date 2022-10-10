@@ -125,6 +125,8 @@ function Budget(props) {
     },
   ];
 
+  console.log(userId);
+
   if (target) {
     return (
       <>
@@ -189,6 +191,8 @@ function Budget(props) {
             setSubmit={props.setSubmit}
             income={props.income}
             expense={props.expense}
+            userId={userId}
+            length={props.length}
           />
         </div>
       </>

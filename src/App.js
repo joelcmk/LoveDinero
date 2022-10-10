@@ -118,6 +118,8 @@ const App = function () {
     setPp(childData);
   };
 
+  console.log(userId);
+
   if (submit === '') {
     return (
       <HashRouter>
@@ -137,6 +139,8 @@ const App = function () {
                   parentCallback={handleCallback}
                   pp={pp}
                   data={data}
+                  userId={userId}
+                  length={length}
                 />
               }
             />
