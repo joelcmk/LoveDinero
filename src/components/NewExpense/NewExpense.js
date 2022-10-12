@@ -27,6 +27,7 @@ function NewExpense(props) {
       expense: integer,
     });
     setCategory('');
+    setExpense('');
   };
 
   const options = [
