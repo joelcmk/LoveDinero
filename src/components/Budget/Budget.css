@@ -72,10 +72,6 @@ td:nth-child(2) {
   text-align: center;
 }
 
-.budget input p {
-  margin-left: 10px;
-}
-
 .edit {
   margin: 19px 0;
   width: 80px;

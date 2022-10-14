@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-.input input {
+#expense {
   border: 1px solid #cccccc;
   border-radius: 5px;
   height: 35px;
