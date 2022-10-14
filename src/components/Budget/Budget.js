@@ -150,7 +150,7 @@ function Budget(props) {
                     <td>
                       {!updateTarget ? (
                         <div className="edit">
-                          <p className="test1">
+                          <p className="">
                             <span>$</span>
                             {item.target == undefined ? '0' : item.target}
                           </p>

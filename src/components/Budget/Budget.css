@@ -31,17 +31,21 @@ th {
   height: 52px;
 }
 
+tr {
+  height: 60px;
+}
+
 table {
   margin-bottom: 20px;
 }
 
 td:last-child {
   float: right;
+  text-align: left;
   padding-right: 20px;
 }
 
 td:last-child p {
-  padding-right: 20px;
 }
 
 td:nth-child(2) {
@@ -57,6 +61,28 @@ td:nth-child(2) {
 
 .expenses tr:nth-child(even) {
   background-color: #a9e2df;
+}
+
+.budget input {
+  height: 40px;
+  border: none;
+  margin: 8px 0;
+  width: 80px;
+  padding: 0;
+  text-align: center;
+}
+
+.budget input p {
+  margin-left: 10px;
+}
+
+.edit {
+  margin: 19px 0;
+  width: 80px;
+}
+
+.edit p {
+  margin-left: 20px;
 }
 
 .update_button {
