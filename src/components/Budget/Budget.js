@@ -80,6 +80,7 @@ function Budget(props) {
       expenses: props.categoryTotal('home'),
       target: home,
       updateTarget: setHome,
+      color: '#00B8D9',
     },
     {
       categoryName: 'Food',
@@ -87,6 +88,7 @@ function Budget(props) {
       expenses: props.categoryTotal('food'),
       target: target.food,
       updateTarget: setFood,
+      color: '#0789F8',
     },
     {
       categoryName: 'Shopping',
@@ -94,6 +96,7 @@ function Budget(props) {
       expenses: props.categoryTotal('shopping'),
       target: target.shopping,
       updateTarget: setShopping,
+      color: '#F9BA00',
     },
     {
       categoryName: 'Utilities',
@@ -101,6 +104,7 @@ function Budget(props) {
       expenses: props.categoryTotal('utilities'),
       target: target.utilities,
       updateTarget: setUtilities,
+      color: '#FE8C00',
     },
     {
       categoryName: 'Household',
@@ -108,6 +112,7 @@ function Budget(props) {
       expenses: props.categoryTotal('household'),
       target: target.household,
       updateTarget: setHousehold,
+      color: '#A6A8F8',
     },
     {
       categoryName: 'Transportation',
@@ -115,6 +120,7 @@ function Budget(props) {
       expenses: props.categoryTotal('transportation'),
       target: target.transportation,
       updateTarget: setTransportation,
+      color: '#47D7A8',
     },
     {
       categoryName: 'Other',
@@ -122,16 +128,15 @@ function Budget(props) {
       expenses: props.categoryTotal('other'),
       target: target.other,
       updateTarget: setOther,
+      color: '#3BCB60',
     },
   ];
-
-  console.log(userId);
 
   if (target) {
     return (
       <>
         <div className="budget">
-          <Chart />
+          <Chart allData={allData} />
           <div className="test">
             <table className="expenses">
               <tr>

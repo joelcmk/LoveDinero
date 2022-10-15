@@ -91,8 +91,6 @@ const App = function () {
     setPp(childData);
   };
 
-  console.log(userId);
-
   return (
     <HashRouter>
       <div className="App">

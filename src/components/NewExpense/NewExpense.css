@@ -1,7 +1,8 @@
 .NewExpense {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 400px;
+  align-items: center;
 }
 
 .input {
@@ -13,6 +14,7 @@
 .category-list {
   margin-top: 5px;
   margin-bottom: 10px;
+  width: 250px;
   --shadow-color: 0deg 0% 60%;
   box-shadow: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.36),
     0.8px 1.6px 2px -0.8px hsl(var(--shadow-color) / 0.36),
@@ -43,7 +45,7 @@
 
 .input button {
   background: #29c0aa;
-  width: 100%;
+  width: 250px;
   color: #fff;
   border: none;
   padding: 10px 20px;
