@@ -225,7 +225,9 @@ function Chart(allData) {
             .style('visibility', 'visible');
         });
     }
-  }, [data, chart]);
+  }, [svgRef.current, chart]);
+
+  console.log(svgRef.current);
 
   return (
     <div className="Chart">

@@ -32,12 +32,12 @@ function NewExpense(props) {
 
   const options = [
     { value: 'home', label: 'Home', color: '#00B8D9' },
-    { value: 'food', label: 'Food', color: '#0052CC' },
-    { value: 'shopping', label: 'Shopping', color: '#5243AA' },
-    { value: 'utilities', label: 'Utilities', color: '#FF5630' },
-    { value: 'household', label: 'Household', color: '#FF8B00' },
-    { value: 'transportation', label: 'Transportation', color: '#FFC400' },
-    { value: 'other', label: 'Other', color: '#36B37E' },
+    { value: 'food', label: 'Food', color: '#0989F8' },
+    { value: 'shopping', label: 'Shopping', color: '#F8BB00' },
+    { value: 'utilities', label: 'Utilities', color: '#FE8D00' },
+    { value: 'household', label: 'Household', color: '#A5A8F8' },
+    { value: 'transportation', label: 'Transportation', color: '#46D7A8' },
+    { value: 'other', label: 'Other', color: '#3ACB5F' },
   ];
 
   const dot = (color = 'transparent') => ({

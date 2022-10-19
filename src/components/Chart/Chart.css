@@ -1,13 +1,19 @@
 .Chart {
-  width: 550px;
+  width: 400px;
   display: flex;
   justify-content: center;
 }
 
 .chart-pie {
-  width: 90%;
+  width: 100%;
 }
 
 .csd {
   color: red;
+}
+
+@media screen and (max-width: 420px) {
+  .Chart {
+    width: 90%;
+  }
 }
