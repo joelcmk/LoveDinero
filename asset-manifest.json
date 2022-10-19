@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/LoveDinero/static/css/main.34d49eaa.chunk.css",
-    "main.js": "/LoveDinero/static/js/main.0e3eff9e.chunk.js",
-    "main.js.map": "/LoveDinero/static/js/main.0e3eff9e.chunk.js.map",
-    "runtime-main.js": "/LoveDinero/static/js/runtime-main.327f5379.js",
-    "runtime-main.js.map": "/LoveDinero/static/js/runtime-main.327f5379.js.map",
+    "main.css": "/LoveDinero/static/css/main.6e16c876.chunk.css",
+    "main.js": "/LoveDinero/static/js/main.26a68182.chunk.js",
+    "main.js.map": "/LoveDinero/static/js/main.26a68182.chunk.js.map",
+    "runtime-main.js": "/LoveDinero/static/js/runtime-main.6cb2b9a0.js",
+    "runtime-main.js.map": "/LoveDinero/static/js/runtime-main.6cb2b9a0.js.map",
     "static/css/2.28499ece.chunk.css": "/LoveDinero/static/css/2.28499ece.chunk.css",
-    "static/js/2.9dcd6ea0.chunk.js": "/LoveDinero/static/js/2.9dcd6ea0.chunk.js",
-    "static/js/2.9dcd6ea0.chunk.js.map": "/LoveDinero/static/js/2.9dcd6ea0.chunk.js.map",
-    "static/js/3.1b1d4ed5.chunk.js": "/LoveDinero/static/js/3.1b1d4ed5.chunk.js",
-    "static/js/3.1b1d4ed5.chunk.js.map": "/LoveDinero/static/js/3.1b1d4ed5.chunk.js.map",
+    "static/js/2.8f1a4c2a.chunk.js": "/LoveDinero/static/js/2.8f1a4c2a.chunk.js",
+    "static/js/2.8f1a4c2a.chunk.js.map": "/LoveDinero/static/js/2.8f1a4c2a.chunk.js.map",
+    "static/js/3.c386a91b.chunk.js": "/LoveDinero/static/js/3.c386a91b.chunk.js",
+    "static/js/3.c386a91b.chunk.js.map": "/LoveDinero/static/js/3.c386a91b.chunk.js.map",
     "index.html": "/LoveDinero/index.html",
     "static/css/2.28499ece.chunk.css.map": "/LoveDinero/static/css/2.28499ece.chunk.css.map",
-    "static/css/main.34d49eaa.chunk.css.map": "/LoveDinero/static/css/main.34d49eaa.chunk.css.map",
-    "static/js/2.9dcd6ea0.chunk.js.LICENSE.txt": "/LoveDinero/static/js/2.9dcd6ea0.chunk.js.LICENSE.txt",
+    "static/css/main.6e16c876.chunk.css.map": "/LoveDinero/static/css/main.6e16c876.chunk.css.map",
+    "static/js/2.8f1a4c2a.chunk.js.LICENSE.txt": "/LoveDinero/static/js/2.8f1a4c2a.chunk.js.LICENSE.txt",
     "static/media/Signup.css": "/LoveDinero/static/media/login.c11377dc.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.327f5379.js",
+    "static/js/runtime-main.6cb2b9a0.js",
     "static/css/2.28499ece.chunk.css",
-    "static/js/2.9dcd6ea0.chunk.js",
-    "static/css/main.34d49eaa.chunk.css",
-    "static/js/main.0e3eff9e.chunk.js"
+    "static/js/2.8f1a4c2a.chunk.js",
+    "static/css/main.6e16c876.chunk.css",
+    "static/js/main.26a68182.chunk.js"
   ]
 }
