@@ -7,6 +7,7 @@ import Signup from './components/Signup/Signup';
 import firebase from 'firebase/compat/app';
 import Profile from './components/Profile';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer/Footer';
 import { getAuth } from 'firebase/auth';
 import './App.css';
 
@@ -122,6 +123,7 @@ const App = function () {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile pp={pp} total={total} />} />
         </Routes>
+        <Footer />
       </div>
     </HashRouter>
   );
