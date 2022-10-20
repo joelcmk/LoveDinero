@@ -1,4 +1,4 @@
-# BUDGET CALCULATOR 
+# LoveDinero
 
 LoveDinero will make your finances more enjoyable and manageable. Track expenses for up to seven different categories. All your information is safely saved on the cloud so you can have access to it from anywhere. 
 LoveDinero is easy to use, it was made with the end-user in mind. You can sign in via email, a google account or trying a demo. 
