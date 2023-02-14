@@ -9,7 +9,7 @@ LoveDinero is easy to use, it was made with the end-user in mind. You can sign i
 - Login via Email, with a Google account or try a Demo.  
 - Clean and easy to use interface. 
 
-[Live site](https://joelcmk.github.io/budget-calculator)
+[Live site](https://joelcmk.github.io/LoveDinero/)
 
 ![My Image](https://github.com/joelcmk/joelsaucedo.com/blob/main/src/Images/budget.png)
 
