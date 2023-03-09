@@ -21,7 +21,7 @@ function Chart(allData) {
       setChart(true);
     }, 1000);
 
-    if (chart == true) {
+    if (chart === true) {
       // retrieve the svg in which to plot the viz
       const svg = d3.select(svgRef.current);
 
@@ -225,7 +225,7 @@ function Chart(allData) {
             .style('visibility', 'visible');
         });
     }
-  }, [svgRef.current, chart]);
+  }, [chart, data, sumOfAllExpenses]);
 
   console.log(svgRef.current);
 

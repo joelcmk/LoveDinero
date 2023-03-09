@@ -1,28 +1,17 @@
-import { useState, useEffect } from 'react';
-import firebase from 'firebase/compat/app';
+import { useState } from 'react';
 import 'firebaseui/dist/firebaseui.css';
 import 'firebase/compat/auth';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Signup.css';
 import { useNavigate, Link } from 'react-router-dom';
-import {
-  getAuth,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  GoogleAuthProvider,
-  signInWithPopup,
-} from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 
 const Signup = function () {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [wrongEmail, setWrongEmail] = useState(false);
 
   const auth = getAuth();
 
   const navigate = useNavigate();
-  const provider = new GoogleAuthProvider();
 
   const createAccount = (e) => {
     e.preventDefault();
@@ -30,12 +19,11 @@ const Signup = function () {
       .then((userCredential) => {
         // Signed in
         navigate('/');
-        const user = user.currentUser;
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
+        return errorCode + errorMessage;
       });
   };
 

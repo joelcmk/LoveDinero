@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import Input from '../../components/Input';
 import Chart from '../Chart/Chart';
 import NewExpense from '../NewExpense/NewExpense';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Budget.css';
 
 import { getDatabase, ref, onValue, update } from 'firebase/database';
@@ -157,7 +156,7 @@ function Budget(props) {
                         <div className="edit">
                           <p className="">
                             <span>$</span>
-                            {item.target == undefined ? '0' : item.target}
+                            {item.target === undefined ? '0' : item.target}
                           </p>
                         </div>
                       ) : (

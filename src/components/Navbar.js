@@ -27,7 +27,7 @@ const Navbar = function (props) {
         navigate('/login');
       }
     });
-  }, [user]);
+  }, [auth, navigate, user]);
 
   return (
     <div className="nav">

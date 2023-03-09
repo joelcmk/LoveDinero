@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import CreatableSelect from 'react-select/creatable';
 import Budget from './components/Budget/Budget';
 import ExpensesList from './components/ExpensesList';
 import Login from './components/Login/Login';

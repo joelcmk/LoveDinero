@@ -27,7 +27,7 @@ const Profile = function (props) {
         navigate('/login');
       }
     });
-  }, [user]);
+  }, [auth, navigate, user]);
 
   return (
     <div className="profile">

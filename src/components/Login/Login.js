@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import firebase from 'firebase/compat/app';
 import 'firebaseui/dist/firebaseui.css';
 import 'firebase/compat/auth';
@@ -9,7 +9,6 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
 } from 'firebase/auth';
@@ -30,37 +29,27 @@ const Login = function () {
       .then((userCredential) => {
         // Signed in
         navigate('/');
-        const user = user.currentUser;
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         setWrongEmail(true);
+        return errorCode + errorMessage;
       });
   };
 
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-    })
+    .then((userCredential) => {})
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
+      return errorCode + errorMessage;
     });
 
   const googleLogin = (e) => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
-        const user = result.user;
         navigate('/');
-        // ...
       })
       .catch((error) => {
         // Handle Errors here.
@@ -70,7 +59,7 @@ const Login = function () {
         const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        return errorCode + errorMessage + email + credential;
       });
   };
 
@@ -137,9 +126,9 @@ const Login = function () {
               onChange={handlePassword}
             />
             <button className="login-btn">Submit</button>
-            <a onClick={googleLogin} className="google">
+            <button onClick={googleLogin} className="google">
               Or sign-in with google
-            </a>
+            </button>
             <button onClick={demoLogin} className="demo">
               Or try a demo
             </button>
