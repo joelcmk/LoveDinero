@@ -14,6 +14,11 @@ import { Routes, Route, HashRouter } from 'react-router-dom';
 
 import { getDatabase, ref, onValue } from 'firebase/database';
 
+WebSocket.onclose = (event) => {
+  console.log(event.code);
+};
+console.log(typeof window === 'undefined');
+
 const App = function () {
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -91,10 +96,12 @@ const App = function () {
     setPp(childData);
   };
 
+  console.log(user);
+
   return (
     <HashRouter>
       <div className="App">
-        <Navbar />
+        {user && <Navbar />}
         <Routes>
           <Route
             exact
