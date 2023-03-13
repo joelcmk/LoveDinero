@@ -1,12 +1,18 @@
 import './Chart.css';
 import React, { useState, useEffect, useRef } from 'react';
 import * as d3 from 'd3';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 function Chart(allData) {
   const svgRef = useRef(null);
 
   const data = allData.allData;
   const [chart, setChart] = useState(false);
+
+  const auth = getAuth();
+  const user = auth.currentUser;
+
+  console.log(user);
 
   const allExpenses = data.map((category) => category.expenses);
 
@@ -21,7 +27,7 @@ function Chart(allData) {
       setChart(true);
     }, 1000);
 
-    if (chart === true) {
+    if (chart) {
       // retrieve the svg in which to plot the viz
       const svg = d3.select(svgRef.current);
 
@@ -227,12 +233,14 @@ function Chart(allData) {
     }
   }, [chart, data, sumOfAllExpenses]);
 
-  console.log(svgRef.current);
-
   return (
-    <div className="Chart">
-      <svg className="chart-pie" ref={svgRef} viewBox="-10 0 500 250"></svg>
-    </div>
+    <>
+      {sumOfAllExpenses && (
+        <div className="Chart">
+          <svg className="chart-pie" ref={svgRef} viewBox="-10 0 500 250"></svg>
+        </div>
+      )}
+    </>
   );
 }
 
