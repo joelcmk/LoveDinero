@@ -17,7 +17,7 @@ import { getDatabase, ref, onValue } from 'firebase/database';
 WebSocket.onclose = (event) => {
   console.log(event.code);
 };
-console.log(typeof window === 'undefined');
+//console.log(typeof window === 'undefined');
 
 const App = function () {
   const firebaseConfig = {
@@ -46,7 +46,7 @@ const App = function () {
     if (user) {
       setUserId(user.uid);
     }
-  }, [user]);
+  }, [user, auth]);
 
   useEffect(() => {
     const db = getDatabase();
@@ -96,12 +96,10 @@ const App = function () {
     setPp(childData);
   };
 
-  console.log(user);
-
   return (
     <HashRouter>
       <div className="App">
-        {user && <Navbar />}
+        <Navbar />
         <Routes>
           <Route
             exact
