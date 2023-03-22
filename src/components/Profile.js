@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
-import '../../.mirrorful/theme.css';
 import './nav.css';
 
 const Profile = function () {
