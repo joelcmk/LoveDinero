@@ -1,4 +1,8 @@
 import firebase from 'firebase/compat/app';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+
+const auth = getAuth();
+const user = auth.currentUser;
 
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -11,3 +15,9 @@ export const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+
+export const isLogedIn = onAuthStateChanged(auth, (user) => {
+  if (user) {
+  } else {
+  }
+});
