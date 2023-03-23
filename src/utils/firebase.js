@@ -1,3 +1,5 @@
+import firebase from 'firebase/compat/app';
+
 export const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
   authDomain: 'budget-d9651.firebaseapp.com',
@@ -7,3 +9,5 @@ export const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
 };
+
+firebase.initializeApp(firebaseConfig);

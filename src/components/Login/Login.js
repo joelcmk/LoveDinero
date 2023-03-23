@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import firebase from 'firebase/compat/app';
 import 'firebaseui/dist/firebaseui.css';
 import 'firebase/compat/auth';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import './Login.css';
 import { useNavigate, Link } from 'react-router-dom';
 import {
@@ -26,7 +24,7 @@ const Login = function () {
   const emailSubmit = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(() => {
         // Signed in
         navigate('/');
       })
@@ -39,7 +37,7 @@ const Login = function () {
   };
 
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {})
+    .then(() => {})
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
@@ -52,43 +50,18 @@ const Login = function () {
         navigate('/');
       })
       .catch((error) => {
-        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         return errorCode + errorMessage + email + credential;
       });
-  };
-
-  const uiConfig = {
-    // Popup signin flow rather than redirect flow.
-    signInFlow: 'popup',
-    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    signInSuccessUrl: '/budget-calculator',
-    // We will display Google and Facebook as auth providers.
-    signInOptions: [
-      firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    ],
-  };
-
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
   };
 
   const demoLogin = (e) => {
     setEmail('demo@demo.com');
     setPassword(process.env.REACT_APP_DEMO_PASSWORD);
   };
-
-  <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />;
 
   return (
     <div className="Login">
@@ -116,14 +89,14 @@ const Login = function () {
               placeholder="you@email.com"
               value={email}
               type="email"
-              onChange={handleEmail}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <p>Password</p>
             <input
               placeholder="password"
               value={password}
               type="password"
-              onChange={handlePassword}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <button className="login-btn">Submit</button>
             <button onClick={googleLogin} className="google">

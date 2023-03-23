@@ -11,7 +11,6 @@ import { getAuth } from 'firebase/auth';
 import './App.css';
 
 import { firebaseConfig } from './utils/firebase';
-import { testt, webapp } from './utils/data';
 
 import { Routes, Route, HashRouter } from 'react-router-dom';
 
@@ -32,8 +31,6 @@ const App = function () {
   const [data, setData] = useState();
   const [userId, setUserId] = useState();
   const [length, setLength] = useState();
-
-  console.log(webapp.currentUser ? 'data' : 'nodata');
 
   useEffect(() => {
     if (user) {
