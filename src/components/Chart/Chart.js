@@ -12,8 +12,6 @@ function Chart(allData) {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  console.log(user);
-
   const allExpenses = data.map((category) => category.expenses);
 
   let sumOfAllExpenses = 0;

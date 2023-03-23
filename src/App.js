@@ -10,6 +10,9 @@ import Footer from './components/Footer/Footer';
 import { getAuth } from 'firebase/auth';
 import './App.css';
 
+import { firebaseConfig } from './utils/firebase';
+import { testt, webapp } from './utils/data';
+
 import { Routes, Route, HashRouter } from 'react-router-dom';
 
 import { getDatabase, ref, onValue } from 'firebase/database';
@@ -20,27 +23,17 @@ WebSocket.onclose = (event) => {
 //console.log(typeof window === 'undefined');
 
 const App = function () {
-  const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain: 'budget-d9651.firebaseapp.com',
-    databaseURL: 'https://budget-d9651-default-rtdb.firebaseio.com',
-    projectId: 'budget-d9651',
-    storageBucket: 'budget-d9651.appspot.com',
-    messagingSenderId: process.env.REACT_APP_SENDER_ID,
-    appId: process.env.REACT_APP_APP_ID,
-  };
   firebase.initializeApp(firebaseConfig);
-
-  const [expense, setExpense] = useState('');
 
   const auth = getAuth();
   const user = auth.currentUser;
 
   const [pp, setPp] = useState();
-
   const [data, setData] = useState();
   const [userId, setUserId] = useState();
   const [length, setLength] = useState();
+
+  console.log(webapp.currentUser ? 'data' : 'nodata');
 
   useEffect(() => {
     if (user) {
@@ -62,40 +55,6 @@ const App = function () {
     });
   }, [userId]);
 
-  // Expenses Total
-  const array = data ? data.map((item) => item.expense) : '';
-  let total = 0;
-
-  for (let i = 0; i < array.length; i++) {
-    total += array[i];
-  }
-
-  // Categories total
-  function filter(category) {
-    let filteredCategory = data
-      ? data.filter((item) => item.category === category)
-      : '';
-    const result = filteredCategory
-      ? filteredCategory.map((item) => item.expense)
-      : '';
-
-    return result;
-  }
-
-  function categoryTotal(category) {
-    let total = 0;
-
-    for (let i = 0; i < filter(category).length; i++) {
-      total += filter(category)[i];
-    }
-
-    return total;
-  }
-
-  const handleCallback = (childData) => {
-    setPp(childData);
-  };
-
   return (
     <HashRouter>
       <div className="App">
@@ -104,19 +63,7 @@ const App = function () {
           <Route
             exact
             path="/"
-            element={
-              <Budget
-                total={total}
-                setExpense={setExpense}
-                expense={expense}
-                categoryTotal={categoryTotal}
-                parentCallback={handleCallback}
-                pp={pp}
-                data={data}
-                userId={userId}
-                length={length}
-              />
-            }
+            element={<Budget data={data} userId={userId} length={length} />}
           />
           <Route
             exact
@@ -125,7 +72,7 @@ const App = function () {
           />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/profile" element={<Profile pp={pp} total={total} />} />
+          <Route path="/profile" element={<Profile pp={pp} />} />
         </Routes>
         <Footer />
       </div>

@@ -59,7 +59,6 @@ function NewExpense(props) {
     control: (styles) => ({ ...styles, backgroundColor: 'white' }),
     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
       const color = chroma(data.color);
-      console.log(data.color);
       return {
         ...styles,
         backgroundColor: isDisabled

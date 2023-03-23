@@ -7,7 +7,7 @@ import './Budget.css';
 
 import { getDatabase, ref, onValue, update } from 'firebase/database';
 
-function Budget(props) {
+function Budget({ data, income, length }) {
   const [userId, setUserId] = useState();
 
   useEffect(() => {
@@ -40,6 +40,7 @@ function Budget(props) {
   const [other, setOther] = useState('0');
 
   const [updateTarget, setUpdateTarget] = useState(false);
+  const [expense, setExpense] = useState('');
 
   const auth = getAuth();
 
@@ -55,6 +56,36 @@ function Budget(props) {
       }
     });
   });
+
+  // Expenses Total
+  const array = data ? data.map((item) => item.expense) : '';
+  let total = 0;
+
+  for (let i = 0; i < array.length; i++) {
+    total += array[i];
+  }
+
+  // Categories total
+  function filter(category) {
+    let filteredCategory = data
+      ? data.filter((item) => item.category === category)
+      : '';
+    const result = filteredCategory
+      ? filteredCategory.map((item) => item.expense)
+      : '';
+
+    return result;
+  }
+
+  function categoryTotal(category) {
+    let total = 0;
+
+    for (let i = 0; i < filter(category).length; i++) {
+      total += filter(category)[i];
+    }
+
+    return total;
+  }
 
   function allCategoriesTarget() {
     setUpdateTarget(!updateTarget);
@@ -76,7 +107,7 @@ function Budget(props) {
     {
       categoryName: 'Home',
       category: home,
-      expenses: props.categoryTotal('home'),
+      expenses: categoryTotal('home'),
       target: home,
       updateTarget: setHome,
       color: '#00B8D9',
@@ -84,7 +115,7 @@ function Budget(props) {
     {
       categoryName: 'Food',
       category: food,
-      expenses: props.categoryTotal('food'),
+      expenses: categoryTotal('food'),
       target: target.food,
       updateTarget: setFood,
       color: '#0789F8',
@@ -92,7 +123,7 @@ function Budget(props) {
     {
       categoryName: 'Shopping',
       category: shopping,
-      expenses: props.categoryTotal('shopping'),
+      expenses: categoryTotal('shopping'),
       target: target.shopping,
       updateTarget: setShopping,
       color: '#F9BA00',
@@ -100,7 +131,7 @@ function Budget(props) {
     {
       categoryName: 'Utilities',
       category: utilities,
-      expenses: props.categoryTotal('utilities'),
+      expenses: categoryTotal('utilities'),
       target: target.utilities,
       updateTarget: setUtilities,
       color: '#FE8C00',
@@ -108,7 +139,7 @@ function Budget(props) {
     {
       categoryName: 'Household',
       category: household,
-      expenses: props.categoryTotal('household'),
+      expenses: categoryTotal('household'),
       target: target.household,
       updateTarget: setHousehold,
       color: '#A6A8F8',
@@ -116,7 +147,7 @@ function Budget(props) {
     {
       categoryName: 'Transportation',
       category: transportation,
-      expenses: props.categoryTotal('transportation'),
+      expenses: categoryTotal('transportation'),
       target: target.transportation,
       updateTarget: setTransportation,
       color: '#47D7A8',
@@ -124,7 +155,7 @@ function Budget(props) {
     {
       categoryName: 'Other',
       category: other,
-      expenses: props.categoryTotal('other'),
+      expenses: categoryTotal('other'),
       target: target.other,
       updateTarget: setOther,
       color: '#3BCB60',
@@ -191,12 +222,12 @@ function Budget(props) {
             </table>
           </div>
           <NewExpense
-            setExpense={props.setExpense}
-            setSubmit={props.setSubmit}
-            income={props.income}
-            expense={props.expense}
+            setExpense={setExpense}
+            income={income}
+            expense={expense}
             userId={userId}
-            length={props.length}
+            // eslint-disable-next-line no-restricted-globals
+            length={length}
           />
         </div>
       </>
