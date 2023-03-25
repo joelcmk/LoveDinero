@@ -58,6 +58,7 @@
     "eslint-plugin-react": "^7.27.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "flow-bin": "^0.164.0",
-    "gh-pages": "^3.2.3"
+    "gh-pages": "^3.2.3",
+    "mirrorful": "^5.0.3"
   }
 }
