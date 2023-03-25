@@ -9,6 +9,7 @@ import { getDatabase, ref, onValue, update } from 'firebase/database';
 
 function Budget({ data, income, length }) {
   const [userId, setUserId] = useState();
+  data = data ? data : [];
 
   useEffect(() => {
     const db = getDatabase();
@@ -103,64 +104,27 @@ function Budget({ data, income, length }) {
     }
   }
 
-  const allData = [
-    {
-      categoryName: 'Home',
-      category: home,
-      expenses: categoryTotal('home'),
-      target: home,
-      updateTarget: setHome,
-      color: '#00B8D9',
-    },
-    {
-      categoryName: 'Food',
-      category: food,
-      expenses: categoryTotal('food'),
-      target: target.food,
-      updateTarget: setFood,
-      color: '#0789F8',
-    },
-    {
-      categoryName: 'Shopping',
-      category: shopping,
-      expenses: categoryTotal('shopping'),
-      target: target.shopping,
-      updateTarget: setShopping,
-      color: '#F9BA00',
-    },
-    {
-      categoryName: 'Utilities',
-      category: utilities,
-      expenses: categoryTotal('utilities'),
-      target: target.utilities,
-      updateTarget: setUtilities,
-      color: '#FE8C00',
-    },
-    {
-      categoryName: 'Household',
-      category: household,
-      expenses: categoryTotal('household'),
-      target: target.household,
-      updateTarget: setHousehold,
-      color: '#A6A8F8',
-    },
-    {
-      categoryName: 'Transportation',
-      category: transportation,
-      expenses: categoryTotal('transportation'),
-      target: target.transportation,
-      updateTarget: setTransportation,
-      color: '#47D7A8',
-    },
-    {
-      categoryName: 'Other',
-      category: other,
-      expenses: categoryTotal('other'),
-      target: target.other,
-      updateTarget: setOther,
-      color: '#3BCB60',
-    },
+  const allCategories = [
+    { name: 'home', color: '#00B8D9' },
+    { name: 'food', color: '#0789F8' },
+    { name: 'shopping', color: '#F9BA00' },
+    { name: 'utilities', color: '#FE8C00' },
+    { name: 'household', color: '#A6A8F8' },
+    { name: 'transportation', color: '#47D7A8' },
+    { name: 'other', color: '#3BCB60' },
   ];
+
+  const capitalizeFirstLetter = function (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+  const allData = allCategories.map((data) => ({
+    categoryName: capitalizeFirstLetter(data.name),
+    category: data.name,
+    expenses: categoryTotal(data.name),
+    target: eval(data.name),
+    updateTarget: eval(`set${capitalizeFirstLetter(data.name)}`),
+    color: data.color,
+  }));
 
   if (target) {
     return (
@@ -197,7 +161,7 @@ function Budget({ data, income, length }) {
                             onChange={(e) => item.updateTarget(e.target.value)}
                             value={
                               item.category
-                                ? item.category
+                                ? item.target
                                 : item.updateTarget('0')
                             }
                           />
