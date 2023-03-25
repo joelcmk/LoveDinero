@@ -30,20 +30,24 @@ const Navbar = function (props) {
   }, [auth, navigate, user]);
 
   return (
-    <div className="nav">
-      <Link to="/">
-        <h3>LoveDinero</h3>
-      </Link>
-      <Link to="/profile">
-        {profileName !== '' ? (
-          <div className="profile_name">
-            <p>{profileName}</p>
-          </div>
-        ) : (
-          <img className="pp" alt="profile_picture" src={pp} />
-        )}
-      </Link>
-    </div>
+    <>
+      {user && (
+        <div className="nav">
+          <Link to="/">
+            <h3>LoveDinero</h3>
+          </Link>
+          <Link to="/profile">
+            {profileName !== '' ? (
+              <div className="profile_name">
+                <p>{profileName}</p>
+              </div>
+            ) : (
+              <img className="pp" alt="profile_picture" src={pp} />
+            )}
+          </Link>
+        </div>
+      )}
+    </>
   );
 };
 

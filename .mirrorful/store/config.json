@@ -1,0 +1,102 @@
+{
+	"tokens": {
+		"typography": {
+			"fontSizes": [
+				{
+					"value": 1,
+					"unit": "rem",
+					"name": "sm"
+				},
+				{
+					"value": 1.2,
+					"unit": "rem",
+					"name": "md"
+				},
+				{
+					"value": 1.4,
+					"unit": "rem",
+					"name": "lg"
+				}
+			]
+		},
+		"colorData": [
+			{
+				"name": "French Rose",
+				"baseColor": "#e3508d",
+				"variants": {
+					"50": "#f8d4e3",
+					"100": "#f4b9d2",
+					"200": "#f09fc1",
+					"300": "#eb85af",
+					"400": "#e76a9e",
+					"500": "#e3508d",
+					"600": "#df367c",
+					"700": "#d4226c",
+					"800": "#b91e5e",
+					"900": "#9f1951"
+				}
+			},
+			{
+				"name": "Amethyst",
+				"baseColor": "#8f50e3",
+				"variants": {
+					"50": "#e3d4f8",
+					"100": "#d3b9f4",
+					"200": "#c29ff0",
+					"300": "#b185eb",
+					"400": "#a06ae7",
+					"500": "#8f50e3",
+					"600": "#7e36df",
+					"700": "#6e22d4",
+					"800": "#601eb9",
+					"900": "#53199f"
+				}
+			},
+			{
+				"name": "Wattle",
+				"baseColor": "#c9e350",
+				"variants": {
+					"50": "#f2f8d4",
+					"100": "#eaf4b9",
+					"200": "#e1f09f",
+					"300": "#d9eb85",
+					"400": "#d1e76a",
+					"500": "#c9e350",
+					"600": "#c1df36",
+					"700": "#b4d422",
+					"800": "#9eb91e",
+					"900": "#879f19"
+				}
+			},
+			{
+				"name": "button",
+				"baseColor": "#29c0aa",
+				"variants": {
+					"500": "#29c0aa",
+					"text": "#fff"
+				}
+			}
+		],
+		"shadows": [
+			{
+				"name": "sm",
+				"value": "0 1px 2px 0 rgba(0, 0, 0, 0.05)"
+			},
+			{
+				"name": "md",
+				"value": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)"
+			},
+			{
+				"name": "lg",
+				"value": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+			},
+			{
+				"name": "dark-lg",
+				"value": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+			}
+		]
+	},
+	"files": [
+		"css"
+	]
+}

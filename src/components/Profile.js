@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
+import '../.mirrorful/theme.css';
 import './nav.css';
 
-const Profile = function (props) {
+const Profile = function () {
   const [email, setEmail] = useState();
   const [pp, setPp] = useState();
   const [name, setName] = useState();
