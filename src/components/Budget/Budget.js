@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 import React, { useState, useEffect } from 'react';
 import Chart from '../Chart/Chart';
 import NewExpense from '../NewExpense/NewExpense';

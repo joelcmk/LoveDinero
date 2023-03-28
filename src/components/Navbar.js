@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import './nav.css';
 
-const Navbar = function (props) {
+const Navbar = function () {
   const [pp, setPp] = useState();
   const [profileName, setProfileName] = useState('');
 
