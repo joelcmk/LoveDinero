@@ -58,14 +58,6 @@ function Budget({ data, income, length }) {
     });
   });
 
-  // Expenses Total
-  const array = data ? data.map((item) => item.expense) : '';
-  let total = 0;
-
-  for (let i = 0; i < array.length; i++) {
-    total += array[i];
-  }
-
   // Categories total
   function filter(category) {
     let filteredCategory = data
